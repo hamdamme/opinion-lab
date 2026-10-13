@@ -4,52 +4,11 @@ import { LIKERT_LABELS, type Statement } from "@/types";
 import { RatingCompare } from "@/components/RatingCompare";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Loader2 } from "lucide-react";
-
-export function ModelsSection({ ds }: { ds: DatasetState }) {
-  const { dataset } = ds;
-  if (!dataset) return null;
-  return (
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {dataset.llms.map((l) => (
-        <Card key={l.name} className="flex flex-col">
-          <CardHeader className="pb-3">
-            <div className="flex items-start justify-between gap-2">
-              <CardTitle className="text-base">{l.name}</CardTitle>
-              <Badge variant="secondary">{l.provider}</Badge>
-            </div>
-          </CardHeader>
-          <CardContent className="text-sm space-y-1.5 flex-1">
-            <Meta k="Region" v={l.region} />
-            <Meta k="Parameters" v={l.params} />
-            <Meta k="Context" v={l.context} />
-            <Meta k="Architecture" v={l.architecture} />
-            <Meta k="License" v={l.license} />
-            <Meta k="Access" v={l.access} />
-            <Meta k="Instruction following" v={l.instruction} />
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-function Meta({ k, v }: { k: string; v?: string }) {
-  if (!v) return null;
-  return (
-    <div className="flex justify-between gap-3">
-      <span className="text-muted-foreground">{k}</span>
-      <span className="text-right font-medium">{v}</span>
-    </div>
-  );
-}
-
-/* ---------------- Live compare dialog ---------------- */
 
 interface LiveProps {
   ds: DatasetState;
@@ -88,10 +47,7 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
     try {
       const resp = await fetch(`${base}/chat/completions`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${cfg.apiKey}`,
-        },
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${cfg.apiKey}` },
         body: JSON.stringify({
           model: cfg.model,
           messages: [
@@ -119,10 +75,10 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
     <Dialog open={!!statement} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Live LLM comparison</DialogTitle>
+          <DialogTitle>Live model comparison</DialogTitle>
           <DialogDescription>
             Send this statement to any OpenAI-compatible endpoint and compare its live rating with the
-            ten LLMs from the study. Your key is stored only in this browser.
+            ten models from the study. Your key is stored only in this browser.
           </DialogDescription>
         </DialogHeader>
 
@@ -131,7 +87,6 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
             <blockquote className="rounded-md border-l-4 border-primary/40 bg-muted/40 p-3 text-sm">
               {statement.statement}
               <footer className="mt-1 text-xs text-muted-foreground">
-                {statement.id} · {statement.topic} ·{" "}
                 <a className="text-primary hover:underline" href={statement.source} target="_blank" rel="noreferrer">
                   reference source
                 </a>
@@ -139,7 +94,7 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
             </blockquote>
 
             <div className="grid gap-3 sm:grid-cols-3">
-              <div className="sm:col-span-1 space-y-1.5">
+              <div className="space-y-1.5">
                 <Label htmlFor="base">Base URL</Label>
                 <Input id="base" placeholder="https://api.openai.com/v1"
                   value={cfg.baseUrl ?? ""} onChange={(e) => setCfg({ ...cfg, baseUrl: e.target.value })} />
@@ -156,11 +111,7 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
               </div>
             </div>
 
-            <Button
-              onClick={run}
-              disabled={loading || !cfg.apiKey || !cfg.model}
-              className="w-full sm:w-auto"
-            >
+            <Button onClick={run} disabled={loading || !cfg.apiKey || !cfg.model} className="w-full sm:w-auto">
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               {loading ? "Querying model…" : "Get live rating"}
             </Button>
