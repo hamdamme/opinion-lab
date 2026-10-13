@@ -3,7 +3,7 @@
 **Explore evidence. Form your opinion. Compare AI perspectives.**
 
 A living evaluation platform built on a master's research project (*Evaluation of Large
-Language Model Tendencies in the Context of Dietary Supplements*, CS-490, Northeastern
+Language Model Tendencies in the Context of Dietary Supplements*, Northeastern
 Illinois University, 2025). Read evidence-grounded statements about dietary supplements,
 check their scientific sources, rate your own agreement, and see how frontier LLMs rated
 the same statements — tracked over time as new models and new statements are added.
