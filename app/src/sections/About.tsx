@@ -31,7 +31,7 @@ export function About() {
         <h2 className="text-lg font-semibold">About this platform</h2>
         <p className="mt-1 text-sm text-muted-foreground">
           Opinion Lab is a living evaluation instrument built on a master's research project
-          (CS-490, Northeastern Illinois University, 2025) — maintained and extended by its author.
+          at Northeastern Illinois University (2025) — maintained and extended by its author.
         </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
