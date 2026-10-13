@@ -1,0 +1,2402 @@
+[
+    {
+        "id": "1.1.1",
+        "statement": "Dietary supplements are an effective addition for filling nutritional gaps in a regular diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/DietarySupplements-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.2",
+        "statement": "Including dietary supplements in a daily routine can enhance health beyond what diet alone provides.",
+        "reference_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9572052/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.3",
+        "statement": "People who take dietary supplements strongly believe in their benefits for preventing future health issues.",
+        "reference_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9572052/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.4",
+        "statement": "Dietary supplements are often chosen over other options for achieving beauty, weight, or fitness objectives.",
+        "reference_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9572052/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.5",
+        "statement": "Fortified foods and supplements help maintain adequate nutrition during periods when healthy meals are difficult to get.",
+        "reference_url": "https://ods.od.nih.gov/HealthInformation/ODS_Frequently_Asked_Questions.aspx#h4",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.6",
+        "statement": "Dietary supplements made from natural ingredients are generally safer than pharmaceutical medications.",
+        "reference_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9572052/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.7",
+        "statement": "Getting enough vitamin A helps keep your eyes, immune system, and organs working well.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.8",
+        "statement": "Multivitamins with vitamin A eliminate the need for additional vitamin A supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.9",
+        "statement": "Vitamin A supplements provide more consistent support than relying on limited amounts of dairy, fish, or greens.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.10",
+        "statement": "Only Vitamin A supplementation plays a crucial role in supporting normal immune function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.11",
+        "statement": "For all individuals, vitamin and mineral supplements contribute a healthy immune function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.12",
+        "statement": "Adequate iodine intake is essential for normal thyroid hormone production, which regulates metabolism and supports growth.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.13",
+        "statement": "In regions with low soil iodine or limited seafood consumption, iodine supplementation help prevent deficiency health issues. ",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.14",
+        "statement": "Iodine deficiency in pregnancy can impair child neurodevelopment, highlighting the importance of adequate iodine intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.15",
+        "statement": "While 1 mg boron daily supplements can replicate dietary intake, food sources alone cannot provide additional benefits. ",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Boron-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.16",
+        "statement": "While traditionally brewed peppermint tea is the preferred way to support digestion, standardized extracts may offer an alternative when whole leaves aren't practical.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/BotanicalBackground-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.17",
+        "statement": "Fresh peppermint tea should not be the first choice always for digestive comfort, we can consider peppermint supplements as a main option. ",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.18",
+        "statement": "Iron supplements are worth considering even when eating a healthy diet. ",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.19",
+        "statement": "Clinical studies suggest valerian root supplements are well-tolerated for ongoing use, unlike some sleep medications that cause dependence.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/BotanicalBackground-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.20",
+        "statement": "Taking thiamin supplements (B1) is the most reliable way to ensure your body converts carbohydrates into energy.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.21",
+        "statement": "The most convenient way to maintain a steady appetite and healthy metabolism is by taking thiamin supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.22",
+        "statement": "Thiamin supplements help fill nutritional gaps when your diet lacks whole grains or fortified foods.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.23",
+        "statement": "Iron intake is only important for people who are pregnant or anemic; others don\u2019t need to think about it.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
+        "user_answer": "1"
+    },
+    {
+        "id": "1.1.24",
+        "statement": "Iron deficiency is no longer a concern in modern diets, so small dose of iron supplementation is good enough. ",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.25",
+        "statement": "Copper supplements may not be necessary for everyone but can be useful in cases of poor dietary intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.26",
+        "statement": "Foods like nuts, seeds, and whole grains make copper supplements unnecessary for most people.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.27",
+        "statement": "Valerian supplements provide stronger sleep support than dietary sources.",
+        "reference_url": "https://www.nccih.nih.gov/health/valerian",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.28",
+        "statement": "Without copper supplements, it is difficult to maintain proper skin and connective tissue health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.29",
+        "statement": "Taking dietary supplements such as vitamin B12 helps support healthy nerve and blood cell function, keeping your body energized and balanced.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.30",
+        "statement": "Vitamin B12 supplements help prevent megaloblastic anemia, making them a valuable tool for maintaining energy and vitality.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.31",
+        "statement": "Taking fluoride supplements completely prevents cavities even when consuming sugary foods and beverages regularly.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.32",
+        "statement": "Taking fluoride supplements every day can go a long way in protecting children\u2019s teeth and may help reduce the need for many common dental procedures as they grow.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.33",
+        "statement": "Taking Vitamin B12 supplements effectively prevent deficiency symptoms fatigue and nerve issues.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.34",
+        "statement": "If you follow a vegetarian or vegan diet, taking Vitamin B12 supplements is an essential way to keep your energy levels up and protect your nerve health over time.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.35",
+        "statement": "B12 supplements are essential for children on plant-based or limited diets where animal products are not regularly consumed.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.36",
+        "statement": "Taking a riboflavin (Vitamin B2) supplement is a reliable way to support my body\u2019s energy production.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.37",
+        "statement": "High-dose riboflavin supplements ensure maximum absorbable amounts (27mg) are consistently delivered, unlike variable dietary intake from foods like eggs or almonds.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.38",
+        "statement": "Riboflavin supplements provide targeted protection against deficiency symptoms like chronic fatigue and cracked lips.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.39",
+        "statement": "For people who don\u2019t eat dairy, meat, or eggs, taking a riboflavin supplement is a reliable way to get enough vitamin B2.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.40",
+        "statement": "Since processed foods reduce niacin content, niacin supplements serve as essential protection against dementia and cognitive decline.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.41",
+        "statement": "For those with digestive issues, niacin supplements offer an effective way to support energy metabolism and keep the body running smoothly.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.42",
+        "statement": "Krill oil omega-3 supplements are absorbed better than regular fish oil, helping your body get the EPA and DHA it needs for long-term health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.43",
+        "statement": "Children who take calcium supplements often build stronger, more resilient bones than those who rely only on dairy products for their calcium intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.44",
+        "statement": "Calcium supplements with magnesium and potassium relieve nighttime leg cramps more effectively than massage or topical creams.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.45",
+        "statement": "When pregnant women take calcium supplements, their babies are more likely to develop strong bones than with prenatal vitamins alone.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.46",
+        "statement": "Why stress about eating 25 eggs or 3 cups of almonds daily? One biotin pill covers what food struggles to deliver.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Biotin-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.47",
+        "statement": "Eating 5 servings of bell peppers and kiwi daily doesn't work just as well as Vitamin C supplements for wound healing.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.48",
+        "statement": "While regular exercise helps general wellness, vitamin C supplements play a more direct role in strengthening immune defense.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.49",
+        "statement": "High-dose vitamin C supplements reduce cold symptoms more effectively than simply eating oranges or drinking juice.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.50",
+        "statement": "While exercise and diet matter, taking 2,000 mg of vitamin C daily delivers targeted antioxidant protection that supports healthy aging.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.51",
+        "statement": "People facing high pollution or sun exposure benefit more from vitamin C supplements than from diet alone to protect their cells from damage.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.52",
+        "statement": "Infants who are given formula with added Vitamin C develop stronger immune systems compared to those who do not receive the supplement.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.53",
+        "statement": "Athletes taking vitamin C supplements recover faster from intense workouts due to accelerated collagen synthesis.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.54",
+        "statement": "Individuals with limited access to fresh fruits and vegetables absolutely require vitamin C supplementation for optimal health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.55",
+        "statement": "Vitamin C supplementation helps adults over 50 resist age-related immune decline more effectively than relying on the body\u2019s natural resilience.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.56",
+        "statement": "Vitamin D supplements taken daily guarantee strong bones by enhancing calcium absorption throughout life.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.57",
+        "statement": "Supplementation with beetroot extract can enhance endurance and physical performance during aerobic exercise.",
+        "reference_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5295087/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.58",
+        "statement": "For older adults, daily vitamin D supplements (800 IU) support bone strength more reliably than sun exposure, especially in less sunny regions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.59",
+        "statement": "When sun exposure is low, vitamin D supplements are essential for maintaining muscle strength and overall physical performance.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.60",
+        "statement": "To stay protected against infections, taking daily vitamin D supplements is often enough.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.61",
+        "statement": "Even for seniors who eat fatty fish regularly, daily vitamin D supplements offer a more reliable source of support.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.62",
+        "statement": "Blood testing confirms that vitamin D supplements deliver superior nutrient levels compared to dietary sources alone.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.63",
+        "statement": "For adults in cloudy or northern regions, regular Vitamin D supplements are the key to reaching and maintaining optimal levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.64",
+        "statement": "Supplementing with ginger extract helps support digestive comfort and reduces occasional nausea naturally.",
+        "reference_url": "https://www.nccih.nih.gov/health/ginger",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.65",
+        "statement": "For liver health, milk thistle supplements offer stronger antioxidant support than generic multivitamins or fruit-based antioxidants.",
+        "reference_url": "https://www.nccih.nih.gov/health/milk-thistle",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.66",
+        "statement": "Adults who maintain vitamin D levels above 50 nmol/L through supplements tend to experience stronger immune function throughout life.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.67",
+        "statement": "Without supplements, 65% of breastfed babies develop Vitamin D deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.68",
+        "statement": "Even with regular exercise, vitamin E supplements offer added protection for circulation and clot prevention.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.69",
+        "statement": "When diet is low in vitamin E, supplements are the most effective way to restore optimal levels and improve health outcomes.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.70",
+        "statement": "Pregnant women who take vitamin E supplements at recommended levels are more likely to have babies with stronger immune systems.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.71",
+        "statement": "Compared to food sources alone, vitamin E supplements deliver more consistent support for immune and blood vessel health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.72",
+        "statement": "For restoring nerve function, vitamin E supplements may work more effectively than some physical therapies or medications.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.73",
+        "statement": "Fluoride tablets provide extra protection for developing teeth, far beyond what fluoridated toothpaste alone can offer.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.74",
+        "statement": "People with digestive disorders absolutely require vitamin K supplementation to maintain healthy blood clotting.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.75",
+        "statement": "People on long-term antibiotics often experience major health improvements when they take vitamin K supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.76",
+        "statement": "Vitamin K supplements completely prevent osteoporosis when taken regularly at recommended doses.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.77",
+        "statement": "Even a healthy diet benefits from added vitamin K to avoid unexpected deficiencies.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.78",
+        "statement": "Vitamin K supplements give reliable support when food sources like leafy greens are not eaten daily.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.79",
+        "statement": "Without supplement support, it\u2019s harder to meet daily vitamin K needs during pregnancy or breastfeeding.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.80",
+        "statement": "Taking vitamin K supplements ensures reliable clotting support when gut bacteria can\u2019t produce enough.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.81",
+        "statement": "Taking 400 mcg of selenium daily provides strong antioxidant support and may reduce the need for other antioxidant supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.82",
+        "statement": "Taking a zinc supplement every day is a smarter and more reliable way to avoid deficiency than only eating zinc-rich foods once in a while.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.83",
+        "statement": "Omega-3-rich fish oil supplements help manage inflammation and may work more gently and effectively than some prescription drugs.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.1.84",
+        "statement": "While food sources help, a daily zinc supplement provides stronger and more consistent immune protection against everyday infections.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.85",
+        "statement": "Compared to oysters or meat, zinc supplements (11 mg for men, 8 mg for women) offer a more consistent way to support immune defense.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.86",
+        "statement": "Daily zinc supplementation completely prevents the diarrhea, appetite loss, and growth delays associated with even mild zinc deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.87",
+        "statement": "Zinc supplements provide 24-hour consistent protection against environmental toxins by supporting the body's natural detoxification processes.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.88",
+        "statement": "4g daily omega-3 supplements deliver clinically proven RA symptom relief faster and more reliably than diet alone.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.89",
+        "statement": "Relying only on plant-based zinc sources, without a supplement, puts memory, focus, and energy at risk over time.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.90",
+        "statement": "For students managing stress, sleep loss, and fast-paced schedules, zinc supplements provide quiet but crucial protection.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.91",
+        "statement": "During stressful times, probiotic supplements offer gut and immune support that meditation or sleep alone may not provide.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.92",
+        "statement": "Probiotic supplements are often treated like optional extras, despite their potential to influence immunity and digestion.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.93",
+        "statement": "Probiotic supplements provide a stronger and more consistent source of good bacteria than yogurt, giving your gut daily support to stay healthy.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.94",
+        "statement": "Probiotic supplements are more essential than fermented foods, providing all the gut protection most people need",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.95",
+        "statement": "While chicken soup offers comfort, zinc supplements deliver measurable results that 2\u20133 days faster recovery for common cold.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.1.96",
+        "statement": "Selenium supplements providing 55 mcg daily support thyroid function more effectively than most prescription medications.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.97",
+        "statement": "Compared to common heart medications, selenium supplements may offer a more natural way to reduce arterial plaque and improve heart function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.1.98",
+        "statement": "A daily 200 mcg selenium supplement helps restore age-related immune decline and keeps your body better.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.99",
+        "statement": "Even with a diet high in fish and eggs, selenium supplements are still needed to fully support immune health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.1.100",
+        "statement": "Clinically studied ashwagandha supplements offer stress relief similar to medications, without the side effects or dependency risks.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Ashwagandha-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.1",
+        "statement": "Multivitamin/mineral supplements may be unnecessary for individuals who maintain a nutritionally balanced diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.2",
+        "statement": "Relying too much on multivitamin and mineral supplements can reduce interest in eating natural foods that give the body essential nutrients.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.3",
+        "statement": "Believing that multivitamin and mineral supplements can fix poor eating habits ignores the importance of a balanced and varied diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.4",
+        "statement": "It\u2019s easy to assume multivitamin and mineral supplements are always safe, but ignoring that too much of some nutrients can cause harm is a risky way of thinking.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.5",
+        "statement": "The addition of dietary supplements does not guarantee improved management of chronic health conditions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.6",
+        "statement": "Taking multivitamin and mineral supplements produces consistent effects across individuals regardless of variations in diet, health status, or lifestyle.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.7",
+        "statement": "People who take medications should consult a healthcare provider before using multivitamin/mineral supplements to avoid potential interactions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.8",
+        "statement": "The belief that 'natural' supplements are completely safe is misleading, as some may cause harm like liver damage.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.9",
+        "statement": "Many children's multivitamin gummies contain added sugars that could potentially encourage unhealthy dietary patterns.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.10",
+        "statement": "The sugar content in gummy vitamins could potentially increase oral bacteria and dental caries development.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.11",
+        "statement": "People with gelatin sensitivity could experience allergic responses from gelatin-containing supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.12",
+        "statement": "The effectiveness of herbal supplements such as echinacea and elderberry for preventing infections remains uncertain due to insufficient conclusive research.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.13",
+        "statement": "Excessive intake of vitamin E through dietary supplements could lead to adverse health effects.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.14",
+        "statement": "Existing research provides limited evidence that omega-3 supplements effectively boost immune system performance.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.15",
+        "statement": "Dietary supplements for hydration and electrolytes may not provide superior benefits compared to adequate water intake and balanced nutrition.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.16",
+        "statement": "People who take vitamin A supplements might start ignoring healthy foods that naturally provide vitamin A and other important nutrients.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.17",
+        "statement": "Most people do not need vitamin A supplements because food sources are always enough to support vision.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.18",
+        "statement": "Long-term weight management typically requires calorie control and exercise rather than reliance on supplements alone.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WeightLoss-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.19",
+        "statement": "The assumption that weight-loss supplements are universally safe disregards possible adverse effects and drug interactions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WeightLoss-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.20",
+        "statement": "Claims that supplements can prevent fat/carb absorption are not well-substantiated by current research evidence.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WeightLoss-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.21",
+        "statement": "It\u2019s best to talk to a doctor before starting any supplement, even if it seems harmless.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.22",
+        "statement": "The assumption that higher doses of weight-loss supplements increase benefits ignores potential safety concerns.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WeightLoss-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.23",
+        "statement": "Relying on performance supplements without sufficient evidence may lead to neglecting proven training methods and nutritional strategies.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.24",
+        "statement": "Thinking that \u2018natural\u2019 supplements are always safe ignores the real risk of contamination or hidden ingredients in products that aren\u2019t strictly regulated.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.25",
+        "statement": "Assuming that supplements marketed for energy boosts are a substitute for proper rest and recovery undermines essential aspects of athletic training.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.26",
+        "statement": "Vitamin A supplements cannot fully compensate for the nutritional benefits provided by a varied whole-food diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.27",
+        "statement": "Relying on supplements instead of foods like carrots or leafy greens for vitamin A supplement ignores the added nutritional value of whole foods.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.28",
+        "statement": "Many supplements contain undisclosed preformed vitamin A, potentially leading to unintentional excessive intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.29",
+        "statement": "Current research does not strongly support vitamin C supplements as an effective cold prevention strategy for most people.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.30",
+        "statement": "Daily vitamin C intake exceeding 2,000 mg may induce gastrointestinal distress, including cramps and diarrhea.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.31",
+        "statement": "Thinking all vitamin C supplements are the same overlooks how much their quality and strength can vary from one product to another.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.32",
+        "statement": "Vitamin C supplementation lacks consistent evidence for enhancing athletic performance in healthy individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.33",
+        "statement": "Healthy adults who eat fruits and vegetables regularly are unlikely to gain any meaningful benefit from taking vitamin C supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.34",
+        "statement": "Omega-3 supplements lack the complete nutritional profile (e.g., selenium, vitamin D, bioactive peptides) found in fatty fish.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.35",
+        "statement": "Taking too much omega-3 in supplement form can increase the risk of bleeding and may even weaken how well your immune system works.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.36",
+        "statement": "The belief that omega-3 supplements can universally prevent heart disease is not conclusively supported by current scientific research.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.37",
+        "statement": "Even though omega-3 supplements are widely used, there\u2019s still no clear proof that they help prevent cognitive decline or dementia.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.38",
+        "statement": "Individuals with sufficient sun exposure and a balanced diet gain no additional health benefits from vitamin D supplements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.39",
+        "statement": "Taking too much vitamin D through supplements can cause serious side effects like nausea, vomiting, and even kidney problems.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.40",
+        "statement": "Without medical guidance, people might accidentally take too much vitamin D from supplements and put themselves at risk for toxicity.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.41",
+        "statement": "Taking over-the-counter vitamin D supplements is always safe, and there is no need to worry about taking too much or any risk of toxicity.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer",
+        "user_answer": "1"
+    },
+    {
+        "id": "1.2.42",
+        "statement": "Choosing vitamin B6 supplements over consuming foods like poultry, fish, potatoes, and bananas disregards the additional nutrients these whole foods offer.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.43",
+        "statement": "Regular intake of high-dose vitamin B6 supplements can lead to severe nerve damage, resulting in numbness and difficulty walking.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.44",
+        "statement": "Taking vitamin B6 supplements has not been proven to improve mood or reduce symptoms of depression in individuals without a deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.45",
+        "statement": "For individuals consuming a balanced diet rich in nuts, seeds, and green leafy vegetables, additional vitamin E supplementation offers no significant health advantages.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.46",
+        "statement": "Taking large amounts of vitamin E supplements especially over 1,000 mg a day can raise the risk of bleeding and even lead to hemorrhagic stroke.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.47",
+        "statement": "Taking zinc supplements above 40 mg a day for a long time can cause copper deficiency, which may lead to anemia and problems with nerve function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.48",
+        "statement": "Many detox supplements promise to cleanse the body, but the liver and kidneys already handle this function naturally.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.49",
+        "statement": "Counting on zinc supplements to boost immunity can be misleading, especially when most healthy people already get enough from their regular diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.50",
+        "statement": "Zinc lozenges often pack more zinc than your body needs in a day, and using them too often can raise the risk of unpleasant side effects.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.51",
+        "statement": "Taking zinc supplements along with calcium or iron can make it harder for your body to absorb the zinc, reducing how effective it is.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.52",
+        "statement": "Taking vitamin and mineral supplements can work just as well as vaccines or medicine in protecting against COVID-19.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/DietarySupplementsInTheTimeOfCOVID19-Consumer",
+        "user_answer": "1"
+    },
+    {
+        "id": "1.2.53",
+        "statement": "Relying on herbal supplements like echinacea or elderberry as a defense against COVID-19 is misleading and unsupported by conclusive research.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/DietarySupplementsInTheTimeOfCOVID19-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.54",
+        "statement": "Taking large doses of vitamins C or D in an attempt to boost immunity can have harmful side effects and is not proven to offer significant protection against viruses.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/DietarySupplementsInTheTimeOfCOVID19-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.55",
+        "statement": "There is no scientific evidence to suggest that dietary supplements can significantly reduce the severity or duration of COVID-19 symptoms.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/DietarySupplementsInTheTimeOfCOVID19-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.56",
+        "statement": "Even short-term use of molybdenum supplements can easily disrupt copper levels, making them risky to take without strict medical guidance.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Molybdenum-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.57",
+        "statement": "Many people assume more antioxidants are better, but excessive intake through supplements may disrupt natural body functions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.58",
+        "statement": "There is insufficient evidence to support the idea that boron supplements have a significant impact on bone health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Boron-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.59",
+        "statement": "Excessive boron intake can cause hormonal imbalance, particularly in males.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Boron-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.60",
+        "statement": "Iron supplements can cause gastrointestinal issues such as constipation and nausea, even at lower doses.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.61",
+        "statement": "Using phosphorus supplements without medical advice can disrupt the body\u2019s calcium balance.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Phosphorus-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.62",
+        "statement": "People with kidney disease are especially at risk for phosphorus overload, yet they might unknowingly consume excessive amounts that could worsen their condition.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Phosphorus-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.63",
+        "statement": "Relying on phosphorus supplements may increase the risk of heart issues and kidney complications, particularly when used without proper medical advice.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Phosphorus-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.64",
+        "statement": "Taking phosphorus supplements is usually safe, and people with chronic kidney disease do not need to worry much about high blood phosphorus or bone problems.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Phosphorus-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.65",
+        "statement": "Creatine supplementation may lead to water retention and associated weight gain, potentially undesirable effects for certain individuals.",
+        "reference_url": "https://www.opss.org/article/creatine-monohydrate-dietary-supplement-performance",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.66",
+        "statement": "Exceeding the 350 mg upper limit for supplemental magnesium may increase risks of cardiac arrhythmias, particularly in older populations.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.67",
+        "statement": "Magnesium supplements can interfere with medications like antibiotics or osteoporosis drugs, making them less effective if not taken at the right time.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.68",
+        "statement": "Magnesium-rich foods may provide more reliable benefits than supplements for managing blood pressure, migraines, and metabolic conditions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.69",
+        "statement": "Taking iodine supplements without evaluating personal requirements could lead to unnecessary consumption, despite soil nutrient concerns.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.70",
+        "statement": "Iodine supplementation alone provides incomplete protection for fetal neurodevelopment if maternal diet lacks other essential nutrients.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.71",
+        "statement": "Believing thiamin supplements will boost appetite or metabolism can be misleading, especially when the real solution often lies in better food choices.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-Consumer",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.72",
+        "statement": "Some dietary supplements degrade over time, reducing their potency before they reach consumers.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/DietarySupplements-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.73",
+        "statement": "Taking iron supplements every day is safe and does not cause any side effects or nutrient problems.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.74",
+        "statement": "Taking probiotics might seem harmless, while generally safe for healthy users, probiotics pose potential infection risks for those with weakened immune systems.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.75",
+        "statement": "Probiotic efficacy for digestive disorders (e.g., IBS, diarrhea) is strain-specific, dose-dependent, and varies individually, making universal claims unreliable.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.76",
+        "statement": "Frequent probiotic incorporation into everyday products could mask individualized risks and inconsistent effectiveness among consumers.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.77",
+        "statement": "Regular intake of selenium above 400 mcg per day may lead to brittle hair, nail loss, and neurological issues.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.78",
+        "statement": "Many calcium supplements cause gas, bloating, or constipation, which can discourage regular use.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.79",
+        "statement": "Many people take calcium supplements assuming bone protection, but studies show unclear benefits for preventing fractures in older adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.80",
+        "statement": "Calcium supplements can interfere with medications like thyroid hormones or antibiotics if taken too close together.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.81",
+        "statement": "Taking 1,000 mg of calcium in a single dose is ineffective, as the body absorbs no more than 500 mg at one time.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.82",
+        "statement": "While calcium is essential for bone health, unsupervised supplementation may adversely affect cardiovascular health when vitamin D status is suboptimal.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.83",
+        "statement": "Biotin supplements rarely help with hair loss unless you are deficient, which is uncommon.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.84",
+        "statement": "Biotin supplements can give false reassurance about addressing skin or hair problems.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.85",
+        "statement": "Many weight-loss supplements contain ingredient combinations that have not been rigorously tested for safety or efficacy in clinical studies.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WeightLoss-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.86",
+        "statement": "Copper toxicity, including symptoms like nausea and liver damage, can develop slowly, making it risky to self-dose without medical supervision.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.87",
+        "statement": "Regular use of high-dose zinc supplements may unintentionally cause copper deficiency, a side effect many users overlook.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.88",
+        "statement": "The effects of copper on Alzheimer\u2019s disease are unclear, yet supplements are sometimes used based on weak or conflicting evidence.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.89",
+        "statement": "Taking high-dose niacin more that 1000 mg/day can lead to serious liver damage.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.90",
+        "statement": "High levels of nicotinic acid in supplements may raise blood sugar levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.91",
+        "statement": "Supplements with 30 mg or more of niacin can cause dizziness and rashes.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.92",
+        "statement": "Niacin can interfere with diabetes and tuberculosis medications.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.93",
+        "statement": "Niacin therapy does not lower heart attack risk despite improving cholesterol.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.94",
+        "statement": "Riboflavin supplements are sometimes used for migraines, but research is inconsistent and benefits are not guaranteed.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer",
+        "user_answer": "3"
+    },
+    {
+        "id": "1.2.95",
+        "statement": "Many people take high-dose riboflavin without medical guidance, not realizing that the body simply eliminates the excess through urine.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.96",
+        "statement": "Many people take riboflavin supplements without knowing that common foods like eggs, milk, and cereal already meet daily needs.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-Consumer",
+        "user_answer": "2"
+    },
+    {
+        "id": "1.2.97",
+        "statement": "The popularity of certain dietary supplements is often cyclical, influenced by trends rather than scientific advancements.",
+        "reference_url": "https://www.cancer.org/cancer/managing-cancer/treatment-types/complementary-and-integrative-medicine/dietary-supplements/safety.html",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.98",
+        "statement": "Most diabetes supplements seem more hype than help when it comes to actual results.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "4"
+    },
+    {
+        "id": "1.2.99",
+        "statement": "Nutritional needs change over time, and dietary supplements may not always be necessary at every stage of life.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "1.2.100",
+        "statement": "The effectiveness of dietary supplements depends on individual health needs and how well the body absorbs them.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/WYNTK-Consumer/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.1",
+        "statement": "Taking 900 micrograms of vitamin A daily from supplements meets the recommended intake for adult men.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.2",
+        "statement": "Vitamin A supplements, when taken at recommended levels such as the RDA of 900 mcg RAE for adult men and 700 mcg RAE for adult women, support immune system health by maintaining normal immune responses.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.3",
+        "statement": "Taking adequate Vitamin A supplementation contributes to the structural integrity of epithelial tissues, which are essential for protecting internal organs and supporting overall tissue function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.4",
+        "statement": "Taking 600 international units of vitamin D daily as a supplement supports strong and healthy bones in adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.5",
+        "statement": "During the rapid growth of adolescence, zinc supplementation at the recommended 11 mg per day for male teens plays a critical role in supporting musculoskeletal development and cognitive maturation.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.6",
+        "statement": "Taking zinc supplements at 15 to 30 mg daily at the first sign of a cold may shorten how long symptoms last and ease their severity, providing reliable support for immune health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.7",
+        "statement": "Folic acid supplementation at 400 to 800 micrograms per day is a well-supported strategy for lowering some cases of cardiovascular risk, particularly by helping reduce elevated homocysteine levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.8",
+        "statement": "Boron supplements taken at safe levels below 20 milligrams for adults help support health without causing side effects.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Boron-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.9",
+        "statement": "Supplementing with calcium and vitamin D together has been shown to support bone density and lower the risk of fractures in older adults, especially when taken consistently at recommended daily levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.10",
+        "statement": "Magnesium supplements are an effective way to support healthy bone structure and metabolic function, making them a confident recommendation for healthcare providers.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.11",
+        "statement": "Vitamin B12 supplementation supports optimal neurological function, particularly in individuals with limited dietary intake or increased physiological needs.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.12",
+        "statement": "Magnesium supplementation at 310 to 320 mg per day for adult women and 400 to 420 mg per day for adult men helps support normal muscle and nerve function, especially when dietary intake is inadequate.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.13",
+        "statement": "Vitamin B12 supplementation at 1000 micrograms per day helps prevent neurological complications in individuals following strict vegetarian diets, where dietary B12 intake is often insufficient.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.14",
+        "statement": "Magnesium supplementation at 360 milligrams per day during pregnancy supports healthy fetal development and helps maintain maternal metabolic function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional",
+        "user_answer": "1"
+    },
+    {
+        "id": "2.1.15",
+        "statement": "Vitamin B6 supplementation at 2.0 milligrams per day during lactation supports amino acid metabolism and contributes to the health of both mother and infant.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.16",
+        "statement": "Vitamin B6 supplements taken within recommended limits support hemoglobin synthesis and enhance oxygen transport throughout the body.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.17",
+        "statement": "With increasing age, the body\u2019s need for vitamin B6 rises, making supplementation at the RDA 1.7 mg per day for older men and 1.5 mg per day for older women especially important for maintaining metabolic health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.18",
+        "statement": "Supplementing with vitamin B6 helps maintain red blood cell health by supporting hemoglobin production and effective oxygen transport.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.19",
+        "statement": "Vitamin C supplements are often overused, since most people get enough from their diet and the added support for functions like immunity or collagen is minimal.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.20",
+        "statement": "As a dietary supplement, vitamin C acts as a potent antioxidant that helps neutralize reactive oxygen species and regenerate other antioxidants, including vitamin E.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.21",
+        "statement": "Vitamin C supplements are generally well tolerated by healthy individuals when taken at levels up to the Tolerable Upper Intake Level of 2,000 milligrams per day.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.22",
+        "statement": "While vitamin C is important, supplements provide little added value for long-term health or cancer prevention if someone already eats enough fruits and vegetables, making their use mostly redundant.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.23",
+        "statement": "Adequate vitamin C intake through supplementation near the RDA supports enzymatic activity involved in norepinephrine biosynthesis, a pathway that may influence tumor response to physiological stress.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.24",
+        "statement": "Consistent vitamin C intake through supplementation or diet contributes to antioxidant protection for cells under environmental or metabolic stress.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.25",
+        "statement": "Vitamin C supplements help reduce the severity and duration of the common cold in individuals experiencing physical stress, such as intense exercise or extreme environments.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.26",
+        "statement": "Smokers benefit from an additional 35 milligrams of vitamin C per day through supplementation to help counteract the elevated oxidative stress associated with tobacco use.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "1"
+    },
+    {
+        "id": "2.1.27",
+        "statement": "Vitamin D supplementation at the RDA of 15 micrograms (600 IU) per day for adults up to age 70 supports optimal calcium absorption and contributes to maintaining strong, healthy bones.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.28",
+        "statement": "Supplementing with vitamin D to maintain levels within the recommended range supports immune function and contributes to reducing the risk of certain chronic diseases.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.29",
+        "statement": "Vitamin D supplementation supports immune system regulation and plays a role in reducing inflammation, particularly in individuals with low baseline levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.30",
+        "statement": "Vitamin D supplementation supports healthy cellular function by contributing to the regulation of cell growth and differentiation.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.31",
+        "statement": "Recommending 20 micrograms (800 IU) of vitamin D per day for adults over 70 helps preserve bone density and lowers the risk of fractures associated with aging.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.32",
+        "statement": "When sunlight exposure or dietary intake is limited, vitamin D supplements are an effective strategy for maintaining adequate serum 25(OH)D levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.33",
+        "statement": "Vitamin D supplements taken at levels up to the tolerable upper intake of 100 micrograms (4,000 IU) per day are considered safe for adults without underlying health conditions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.34",
+        "statement": "Both vitamin D2 and D3 supplements are effective at increasing serum 25(OH)D concentrations when taken consistently as part of a routine supplementation strategy.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.35",
+        "statement": "Daily vitamin E supplementation at 400 IU has been shown to significantly slow functional decline in individuals with moderate Alzheimer\u2019s disease, supporting its role in neuroprotective care.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.36",
+        "statement": "Vitamin E supplementation at doses up to 1,000 mg per day is generally safe for adults, with short-term use showing minimal adverse effects in available evidence.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.37",
+        "statement": "Vitamin E supplements are essential for preventing deficiency in individuals with malabsorption conditions such as cystic fibrosis, Crohn\u2019s disease, or abetalipoproteinemia.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.38",
+        "statement": "Oral vitamin E supplements offer a practical solution for increasing intake in populations with limited access to vitamin E-rich foods.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.39",
+        "statement": "Vitamin E supplementation is a validated strategy for preventing deficiency-related neurologic symptoms such as ataxia and peripheral neuropathy.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.40",
+        "statement": "Supplemental vitamin E is effective in maintaining neurological health in individuals with severe vitamin E absorption disorders.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.41",
+        "statement": "Supplemental vitamin E contributes to cell membrane protection by preventing the oxidation of polyunsaturated fatty acids.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.42",
+        "statement": "Meeting daily vitamin K requirements is critical for enabling the body to produce proteins that regulate coagulation and bone turnover.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.43",
+        "statement": "For adult men, a daily intake of 120 micrograms of vitamin K is essential for activating clotting factors that regulate normal blood coagulation.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.44",
+        "statement": "In adult women, supplementing with 90 micrograms of vitamin K daily contributes to bone maintenance by supporting osteocalcin function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.45",
+        "statement": "For individuals with insufficient dietary intake, vitamin K supplementation following the general guideline of 1 microgram per kilogram of body weight per day supports adequate physiological function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.46",
+        "statement": "Clinically, vitamin K supplements in doses ranging from 1 to 10 milligrams are used to counteract anticoagulant effects in patients at high risk of bleeding.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.47",
+        "statement": "Adults can safely use vitamin A supplements up to 3,000 micrograms per day to prevent deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.48",
+        "statement": "A daily magnesium supplement of 400 milligrams helps maintain healthy muscle and nerve function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional",
+        "user_answer": "1"
+    },
+    {
+        "id": "2.1.49",
+        "statement": "Fluoride supplementation should be prescribed for all children, regardless of community water fluoridation status.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-HealthProfessional",
+        "user_answer": "1"
+    },
+    {
+        "id": "2.1.50",
+        "statement": "A daily niacin supplement of 16 milligrams supports healthy DNA repair and cell metabolism.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.51",
+        "statement": "A daily zinc intake of 11 milligrams for adult men plays a key role in supporting immune defenses and facilitating essential enzymatic processes.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.52",
+        "statement": "An 8 milligram daily intake of zinc in adult women supports the synthesis of proteins and DNA necessary for cellular maintenance and function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.53",
+        "statement": "A daily zinc intake of 9 to 11 milligrams supports growth and maturation in adolescents aged 14 to 18.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.54",
+        "statement": "Zinc intake at recommended dietary levels plays a vital role in promoting wound healing and sustaining normal cellular metabolism.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.55",
+        "statement": "Daily zinc supplementation in the range of 8 to 11 milligrams supports more than 100 enzymatic functions critical to cellular metabolism and immune protection.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.56",
+        "statement": "Short-term use of supplemental zinc up to the tolerable upper intake level of 40 milligrams per day is considered safe for healthy adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.57",
+        "statement": "A 1,000 milligram daily intake of calcium for adults aged 19 to 50 helps maintain bone density and contributes to lowering osteoporosis risk.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.58",
+        "statement": "Calcium carbonate and calcium citrate are widely used supplement forms that effectively support adequate calcium intake and status.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.59",
+        "statement": "When dietary intake is inadequate, calcium supplements serve as a practical solution for meeting daily nutritional requirements.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.60",
+        "statement": "In older adults with reduced gastric acid production, daily calcium supplementation supports adequate calcium absorption when food-based uptake is limited.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.61",
+        "statement": "Calcium supplements taken at recommended levels help maintain essential physiological functions including blood clotting, muscle contraction, and nerve signaling.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.62",
+        "statement": "In cases of low dietary intake, calcium supplementation helps reduce the risk of hypertensive disorders during pregnancy.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.63",
+        "statement": "Calcium supplementation up to the tolerable upper intake level of 2,500 milligrams per day is considered safe for adults aged 19 to 50.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.64",
+        "statement": "The anti-inflammatory properties of omega-3 fatty acids support overall health, offering potential benefits during periods of heightened immune challenge such as the COVID-19 pandemic.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/COVID19-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.65",
+        "statement": "By supporting gut health and immune function, probiotics play a beneficial role in maintaining overall wellness during periods of increased health vulnerability, such as the COVID-19 pandemic.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/COVID19-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.66",
+        "statement": "Adequate zinc levels are essential for immune defense and may enhance the body\u2019s ability to respond effectively to viral infections.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/COVID19-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.67",
+        "statement": "Maintaining sufficient vitamin D levels supports immune system function and plays a critical role in protecting health during periods such as the COVID-19 pandemic.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/COVID19-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.68",
+        "statement": "Fluoride intake at the RDA of 4 milligrams for adult men and 3 milligrams for adult women supports the maintenance of healthy teeth and bones.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.69",
+        "statement": "Providing children with 1 milligram of fluoride daily through supplements reduces their risk of dental caries between ages 4 and 8.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.70",
+        "statement": "Fluoride supplements of 1 mg daily provide optimal cavity protection for children ages 6-16 years with low fluoride water supplies.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.71",
+        "statement": "Using fluoride toothpaste with at least 1,000 mg/L fluoride twice daily is a reliable way to reduce the risk of dental caries.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Fluoride-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.72",
+        "statement": "Maintaining adequate magnesium levels is essential for preserving the body's ability to synthesize and repair genetic material.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.73",
+        "statement": "Normal muscle and nerve function cannot be maintained without adequate magnesium to regulate calcium and potassium flow in cells.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.74",
+        "statement": "Adequate magnesium intake plays a vital role in supporting healthy blood sugar control and blood pressure regulation in individuals with cardiovascular or metabolic concerns.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.75",
+        "statement": "Supplemental magnesium supports bone health more effectively when combined with adequate calcium and vitamin D intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.76",
+        "statement": "Magnesium is essential for the synthesis of glutathione, a critical antioxidant involved in protecting cells from oxidative damage.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.77",
+        "statement": "Optimal muscle performance relies on magnesium\u2019s role in regulating neuromuscular signaling and preventing functional disruptions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.78",
+        "statement": "Prescription potassium supplements are effective in restoring potassium balance after losses from diuretics or chronic diarrhea.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.79",
+        "statement": "Potassium supplementation is a clinically appropriate strategy for correcting medication-induced potassium depletion during corticosteroid or antibiotic therapy.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.80",
+        "statement": "Potassium supplementation plays a key role in maintaining normal cardiac rhythm in individuals vulnerable to arrhythmias from low potassium levels.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.81",
+        "statement": "Vitamin C supplementation strengthens immune defenses by supporting epithelial barriers and antioxidant activity, which may help shorten the duration of common cold symptoms.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.82",
+        "statement": "Echinacea supplementation is linked to enhanced immune cell activity and may help lower the frequency and duration of upper respiratory tract infections.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.83",
+        "statement": "Selenium supplementation enhances immune response by supporting antioxidant activity and promoting the proliferation of immune cells. \u200b",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.84",
+        "statement": "Omega-3 fatty acid supplementation modulates immune responses by reducing inflammation and enhancing the function of immune cells. \u200b",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.85",
+        "statement": "Andrographis supplementation supports immune defense mechanisms and has been shown to reduce the severity and duration of upper respiratory tract infections. \u200b",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.86",
+        "statement": "Garlic supplementation enhances immune function by stimulating the activity of macrophages and lymphocytes, contributing to improved defense against pathogens. \u200b",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ImmuneFunction-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.87",
+        "statement": "Ashwagandha supplements help reduce food cravings in adults experiencing stress.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.88",
+        "statement": "Iodine supplementation is essential for maintaining healthy thyroid hormone levels and supporting key metabolic and protein synthesis functions when there is inadequate dietary intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.89",
+        "statement": "Adequate iodine intake during pregnancy and lactation is critical for supporting healthy neurological development in the fetus and infant.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.90",
+        "statement": "Regular use of iodine supplements is a reliable way to support cognitive health and protect against preventable intellectual impairments caused by deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.91",
+        "statement": "Iodine supplementation is a practical way to support skin health by maintaining thyroid hormone balance and overall metabolic function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.92",
+        "statement": "Iodine supplementation at recommended levels of 220 to 290 micrograms per day during pregnancy and lactation is a key strategy for supporting thyroid health and promoting positive outcomes for both mother and baby.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.93",
+        "statement": "Maintaining a daily iodine intake of 150 micrograms in adults is an effective approach to preventing goiter and supporting normal thyroid function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.94",
+        "statement": "High-dose biotin supplementation at 5 to 10 milligrams daily offers a promising therapeutic approach for managing progressive multiple sclerosis.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.1.95",
+        "statement": "Biotin supplementation plays a vital role in activating carboxylase enzymes that support key metabolic pathways involving fats, sugars, and amino acids.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.96",
+        "statement": "Consistent biotin intake is widely recognized for supporting keratin structure, helping to maintain the health of hair, skin, and nails.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.1.97",
+        "statement": "Iron supplementation is an effective strategy for preventing and treating iron deficiency anemia by boosting hemoglobin levels and enhancing oxygen delivery throughout the body.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.98",
+        "statement": "Maintaining adequate iron levels through supplementation supports hormone synthesis and contributes to balanced endocrine function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.1.99",
+        "statement": "Iron supplementation at 3 milligrams per kilogram per day is an effective intervention for treating iron deficiency anemia in young children by improving hemoglobin levels and oxygen delivery.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.1.100",
+        "statement": "Getting 50 micrograms of molybdenum daily during pregnancy is a simple but important way to support the enzymes that help the body process toxins and medications effectively.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Molybdenum-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.1",
+        "statement": "Protein supplements are often overvalued since getting enough protein from regular meals works just as well for building muscle.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.2",
+        "statement": "Pushing high doses of antioxidants feels counterproductive for active individuals, as it could blunt the body\u2019s natural response to exercise.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.3",
+        "statement": "When the diet is already balanced, common sports supplements like amino acids and caffeine tend to offer little real benefit.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.4",
+        "statement": "Nitric oxide boosters like beetroot juice have mixed research behind them and often fall short of delivering clear benefits for most athletes.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.5",
+        "statement": "Taking extra vitamins and minerals doesn\u2019t seem to boost performance when nutrient needs are already met through a healthy diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.6",
+        "statement": "Calcium supplements feel more risky than helpful for some people, especially with the chance of kidney stones from high doses.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.7",
+        "statement": "Most healthy adults likely don\u2019t need vitamin A supplements if they eat foods like green leafy vegetables, orange pigmented vegetables, eggs, dairy, or fortified products regularly.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.8",
+        "statement": "Using vitamin A supplements for respiratory infections feels unnecessary when there is no deficiency since the benefit is not clear.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.9",
+        "statement": "For people getting enough from food, vitamin A supplements do not really add anything to support reproductive function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.10",
+        "statement": "Taking thiamin supplements feels unnecessary for physical or mental performance when there is no actual deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.11",
+        "statement": "Thiamin supplements do not show consistent benefits for energy metabolism in well-nourished adults, making their use feel unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.12",
+        "statement": "Most people likely get plenty of thiamin from everyday foods, so adding more through supplements does not feel all that useful.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.13",
+        "statement": "Using thiamin without a clear diagnosis can make it harder to spot deeper issues like alcohol use disorder.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.14",
+        "statement": "Taking extra vitamin B12 feels unnecessary for energy if there is no diagnosed deficiency behind the fatigue.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.15",
+        "statement": "For most healthy people who eat animal products, getting enough vitamin B12 through diet is easy, so supplements rarely feel needed.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.16",
+        "statement": "For people with normal homocysteine levels, taking vitamin B12 has not shown clear benefits for heart health, making its use feel unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.17",
+        "statement": "Without a deficiency, taking vitamin B12 does not seem to lift mood or ease depression, so its mental health benefits feel overstated.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.18",
+        "statement": "Regular use of vitamin C feels unnecessary for most people since it does not actually lower the chances of getting a cold.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.19",
+        "statement": "Most people get enough vitamin C from fruits and vegetables, so taking extra through supplements often feels unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.20",
+        "statement": "Too much vitamin C tends to bring on gut issues like cramping and diarrhea, which makes heavy use feel unnecessary for most.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.21",
+        "statement": "Adding vitamin C to cancer treatment has not shown clear benefits, so its use alongside standard care feels unconvincing.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.22",
+        "statement": "Vitamin C does not seem to boost endurance or ease muscle soreness for most people, making its use for fitness feel overestimated.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.23",
+        "statement": "Even at recommended doses, vitamin C supplements often do not add much beyond what a healthy diet already provides.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.24",
+        "statement": "With inconsistent results from clinical trials, the idea that vitamin C helps prevent heart disease feels unsupported for now.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.25",
+        "statement": "For healthy adults who get enough from food and sunlight, taking vitamin D does not seem to lower fracture risk, making extra supplements feel unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.26",
+        "statement": "In older adults without a deficiency, vitamin D does not appear to improve muscle strength or prevent falls, so its benefits in this group seem overstated.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.27",
+        "statement": "For those who get enough sun and eat well, taking vitamin D at recommended levels often adds little, making the extra feel unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.28",
+        "statement": "Prolonged use of vitamin D supplements, even within suggested limits, may contribute to calcium buildup in soft tissues.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.29",
+        "statement": "Vitamin D supplements do not seem to offer real protection against respiratory infections, so their routine use for that protection feels unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.30",
+        "statement": "Regular use of vitamin D can raise calcium levels over time, which may increase the risk of vascular calcification and make its routine use feel concerning.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.31",
+        "statement": "With clinical trials showing mixed outcomes, the idea that vitamin E supplements help prevent cancer feels unreliable at best.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.32",
+        "statement": "A balanced diet rich in nuts, seeds, and leafy greens typically provides sufficient vitamin E, making supplementation unnecessary for most individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.33",
+        "statement": "Vitamin E supplementation has not been shown to enhance cognitive function or prevent cognitive decline in aging populations",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.34",
+        "statement": "Even at the recommended dietary allowance, vitamin E supplementation may not provide additional health benefits for individuals already meeting their needs through diet.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.35",
+        "statement": "For those already getting enough vitamin E from their diet, supplements do not seem to lower the risk of heart diseases.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.36",
+        "statement": "Vitamin K supplementation does not significantly enhance bone mineral density in individuals without osteoporosis.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.37",
+        "statement": "Consuming green leafy vegetables and fermented foods typically provides sufficient vitamin K, making supplementation unnecessary for most individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.38",
+        "statement": "Vitamin K supplementation has not demonstrated significant improvements in cognitive function among aging populations.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.39",
+        "statement": "Because of the variability in vitamin K formulations, the therapeutic effects can be unpredictable, largely due to differences in how well they are absorbed.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.40",
+        "statement": "Even at recommended dosages, vitamin K supplements may not provide additional health benefits for individuals with adequate dietary intake.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.41",
+        "statement": "Vitamin B12 supplementation does not enhance cognitive function in individuals without deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.42",
+        "statement": "Evidence regarding the effectiveness of vitamin B12 supplements in preventing cardiovascular diseases is inconsistent.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.43",
+        "statement": "Adequate vitamin B12 intake from dietary sources such as meat, poultry, fish, and dairy products makes supplementation unnecessary for most individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.44",
+        "statement": "Excessive vitamin B12 intake from supplements can lead to adverse effects, including acne and rosacea",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.45",
+        "statement": "Vitamin B12 supplementation has not been shown to improve mood or alleviate depressive symptoms in individuals without deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.46",
+        "statement": "Vitamin B6 supplementation does not alleviate symptoms of depression in individuals without a deficiency.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.47",
+        "statement": "A diet rich in organ meats, fruits, vegetables, and whole grains typically provides sufficient vitamin B6, making supplementation unnecessary for most individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.48",
+        "statement": "The variability in vitamin B6 supplement formulations can lead to unpredictable results, as differences in bioavailability affect how effectively they work.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.49",
+        "statement": "High doses of vitamin B6 supplements can lead to nerve damage, causing symptoms such as neuropathy and ataxia.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.50",
+        "statement": "Calcium supplements increase the risk of kidney stones in susceptible individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.51",
+        "statement": "Calcium supplements have shown only limited effectiveness in addressing age-related bone loss, especially when dietary sources provide sufficient calcium.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.52",
+        "statement": "Calcium supplements can interfere with the absorption of medications like tetracyclines, fluoroquinolones, and levothyroxine, making their use alongside these drugs problematic.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.53",
+        "statement": "Taking calcium supplements above the recommended upper limit of 2,000-2,500 mg per day can increase the risk of soft tissue calcification, making excessive use concerning.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.54",
+        "statement": "Copper supplements demonstrate no advantage over dietary copper from whole foods for maintaining proper enzyme function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.55",
+        "statement": "Copper supplements can trigger gastrointestinal distress including nausea, abdominal pain, and diarrhea even at recommended doses.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.56",
+        "statement": "Daily copper supplements exceeding 10 mg increase risk of liver damage and neurological complications.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.57",
+        "statement": "Despite its role in brain function, copper supplementation has not shown any clear benefit in preventing age-related cognitive decline.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Copper-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.58",
+        "statement": "For most people, eating iodine-rich foods like seafood, dairy, and eggs provides enough iodine, making supplements unnecessary.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.59",
+        "statement": "Iodine supplementation does not offer extra health benefits for individuals with normal iodine levels, as it does not improve thyroid function or overall health.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.60",
+        "statement": "Regular use of iodine supplements can easily lead to thyroid issues, even if taken within recommended limits.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.61",
+        "statement": "Differences between iodine supplement brands often make it hard to avoid getting too much iodine, even when taken as directed.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.62",
+        "statement": "Iodine supplements above 1100 mcg per day may worsen thyroid function in susceptible individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.63",
+        "statement": "Multivitamin/mineral supplements provide no established benefits for reducing cardiovascular disease, cancer risk, or cognitive decline in well-nourished adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.64",
+        "statement": "Multivitamin/mineral supplements show inconsistent and inadequate effectiveness for improving mental energy, well-being, or cognitive function.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.65",
+        "statement": "Magnesium intake above 350 mg per day from supplement sources, especially in salt forms, can lead to diarrhea and electrolyte imbalance.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.66",
+        "statement": "Long-term use of omega-3 supplements does not provide conclusive evidence of improvement in major cardiovascular outcomes for healthy adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.67",
+        "statement": "Omega-3 supplementation does not appear to offer significant protection against cancer development, as shown in the VITAL clinical trial.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.68",
+        "statement": "High-dose omega-3 supplementation (4g/day) increases the risk of atrial fibrillation in people with cardiovascular disease.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.69",
+        "statement": "Omega-3 supplements providing 1000 mg or more of EPA and DHA daily do not consistently reduce major cardiovascular events in well-nourished adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.70",
+        "statement": "Niacin supplements above 35 mg per day may cause flushing.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.71",
+        "statement": "Niacin supplements above 35 mg per day may lead to liver abnormalities and gastrointestinal effects.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Niacin-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.72",
+        "statement": "Manganese supplements, if taken in high doses, can lead to neurotoxicity and Parkinson-like symptoms.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Manganese-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.73",
+        "statement": "Selenium intake above 400 mcg per day may cause hair loss and fatigue.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.74",
+        "statement": "Selenium supplements may interfere with metabolism of certain medications including some anticoagulants and sedatives.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.75",
+        "statement": "Selenium supplementation shows no significant reduction in asthma symptoms or frequency despite proposed anti-inflammatory mechanisms",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.76",
+        "statement": "Selenium supplements cannot compensate for poor dietary habits despite marketing claims suggesting comprehensive health protection.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.77",
+        "statement": "The clinical benefits of probiotics remain unclear, as most strains lack consistent evidence from large, high-quality human trials to support their therapeutic use.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional",
+        "user_answer": "1"
+    },
+    {
+        "id": "2.2.78",
+        "statement": "Probiotic supplements are often selected based on brand popularity or marketing, rather than on solid, strain-specific evidence.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.79",
+        "statement": "Patients may falsely assume that taking probiotic dietary supplements ensures gut health, potentially neglecting more evidence-based interventions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.80",
+        "statement": "Current evidence does not support the use of probiotic supplements as a reliable treatment for most gastrointestinal disorders.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.81",
+        "statement": "Despite their popularity, probiotic dietary supplements have not demonstrated consistent benefit across common digestive health conditions.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.82",
+        "statement": "Relying on probiotic supplements regularly may distract from more evidence-based dietary or pharmacological treatments.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.83",
+        "statement": "Excessive folate intake from supplements can hide signs of vitamin B12 deficiency, potentially leading to serious neurological issues.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.84",
+        "statement": "Folate supplementation\u2019s effect on lowering homocysteine levels offers minimal clinical benefits and does not lead to significant cardiovascular risk reduction.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.85",
+        "statement": "Folic acid supplementation has not shown proven benefits for cognitive function and does not appear to prevent cognitive decline in older adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.86",
+        "statement": "Riboflavin plays a minimal role in energy metabolism, and supplementation does not seem to boost energy production in healthy individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.87",
+        "statement": "Current evidence does not support riboflavin supplementation as effective for preventing or treating migraines.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.88",
+        "statement": "Despite claims about its role in energy metabolism, riboflavin supplements have not been shown to improve fatigue or energy levels in healthy adults.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.89",
+        "statement": "Riboflavin supplements provide no proven advantage over naturally riboflavin-rich foods like dairy, eggs, and leafy greens.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.90",
+        "statement": "The supposed benefits of chromium supplements for weight management are minimal and lack clinical significance.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.91",
+        "statement": "There is limited evidence supporting chromium supplementation\u2019s effectiveness in improving insulin sensitivity or glycemic control in patients with type 2 diabetes.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.92",
+        "statement": "The classification of chromium as an essential nutrient is questionable, as there is no definitive evidence linking its deficiency to specific health disorders.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.93",
+        "statement": "Relying on pantothenic acid supplements for skin health is unnecessary, as current research does not support significant dermatological benefits.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/PantothenicAcid-HealthProfessional/",
+        "user_answer": "3"
+    },
+    {
+        "id": "2.2.94",
+        "statement": "Despite claims, pantothenic acid supplementation has not been conclusively proven to offer significant benefits for skin health or wound healing.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/PantothenicAcid-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.95",
+        "statement": "The evidence for pantothenic acid supplements improving lipid profiles is insufficient, making their use in managing hyperlipidemia questionable.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/PantothenicAcid-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.96",
+        "statement": "Routine use of multivitamin/mineral supplements offers no significant benefit in preventing chronic diseases in healthy individuals.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.97",
+        "statement": "Multivitamin/mineral supplements can lead to excessive intake of certain nutrients, which may result in harmful health effects.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-HealthProfessional/",
+        "user_answer": "4"
+    },
+    {
+        "id": "2.2.98",
+        "statement": "Multivitamin/mineral supplements are not a substitute for a balanced diet and may not provide the same health benefits as nutrients obtained from whole food",
+        "reference_url": "https://ods.od.nih.gov/factsheets/MVMS-HealthProfessional/",
+        "user_answer": "5"
+    },
+    {
+        "id": "2.2.99",
+        "statement": "Taking the recommended dose of vitamin D supplements gives people a false sense of health and makes them ignore the need for a good diet and lifestyle.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "2"
+    },
+    {
+        "id": "2.2.100",
+        "statement": "Vitamin D from supplements at 15 mcg (600 IU) per day may not provide the same health benefits as the vitamin D produced through natural sunlight exposure.",
+        "reference_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+        "user_answer": "3"
+    }
+]

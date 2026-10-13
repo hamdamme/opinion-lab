@@ -1,0 +1,22 @@
+{
+  "run_id": "run-2025-04",
+  "collected": "2025-04",
+  "published": "2025-04-29",
+  "mode": "zero-shot rating, shared prompt template",
+  "statements": "data/statements.json (v1.0, 400 statements)",
+  "models": [
+    "OpenAI 3.5 Turbo",
+    "Anthropic Claude 3.7",
+    "Meta Llama 3.3 70B",
+    "OpenAI o1 Mini",
+    "Google Gemini 2.0 Flash",
+    "Mistral Large",
+    "Mistral Saba",
+    "Deepseek R1",
+    "Falcon3 10B",
+    "LG ExaOne Deep 7B"
+  ],
+  "ratings": "results.json (model -> statement ID -> integer 1-5; 10 x 400 = 4000 ratings)",
+  "metadata_notes": "Historical run. Exact resolved model versions, per-request timestamps, and decoding parameters were not fully recorded at collection time; they are labeled unknown rather than reconstructed. Decoding followed provider defaults; one provider (EXAONE) explicitly used temperature 0.6.",
+  "verification": "docs/VERIFICATION_REPORT.md (all ratings confirmed within 1-5, complete, and consistent with the canonical export on 2026-10-12)"
+}
