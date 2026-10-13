@@ -11,7 +11,7 @@ Sources of truth:
 | --- | --- | --- | --- |
 | 0. Research foundation | Thesis verification and corrections; canonical dataset; analysis scripts | done (2026-10-12/13) | Complete |
 | 1. Repository foundation | Canonical repo, docs, data versioning, first release v1.0 | 1 session | In progress |
-| 2. Showcase app v1 | Clean question → evidence → rating → reveal flow; leaderboard; methodology page; hide study internals by default | 2–4 sessions | Not started |
+| 2. Showcase app v1 | Clean question → evidence → rating → reveal flow; leaderboard; methodology page; hide study internals by default | 2–4 sessions | Complete |
 | 3. Publication | GitHub repo public; Zenodo archive + DOI; deployment (Vercel/Cloudflare Pages) | 1 session + owner actions | Not started |
 | 4. Run 2 | Add 1–3 current models with a documented prompt version; drift view in the app | 1–2 sessions | Not started |
 | 5. Statement bank growth | Owner-reviewed additions with source notes; app updates per data release | ongoing | Not started |
