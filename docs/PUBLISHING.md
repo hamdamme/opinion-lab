@@ -1,7 +1,7 @@
 # Publishing checklist (owner actions)
 
 These steps require your GitHub and Zenodo accounts. Nothing here publishes anything by
-itself — each step is explicit and reversible before release.
+itself, each step is explicit and reversible before release.
 
 ## 1. Create the private GitHub repository
 
@@ -17,7 +17,7 @@ Verify: `gh repo view --json nameWithOwner,isPrivate,url` shows your account and
 
 **Before making it public**, review the tree once (`git ls-files`): it should contain
 only this repository's product files. The original research materials (drafts with
-credentials, conflicting exports) must stay out — they are not in this repo.
+credentials, conflicting exports) must stay out, they are not in this repo.
 
 ## 2. Make the repository public
 
@@ -57,5 +57,5 @@ from `data/` when statements or runs change (see app/public/data/README note).
 
 ## 5. Optional: ORCID
 
-If you don't have one, register at https://orcid.org — it links your name to the DOI
+If you don't have one, register at https://orcid.org, it links your name to the DOI
 record permanently and strengthens the public record of the work.

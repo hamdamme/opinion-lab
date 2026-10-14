@@ -6,7 +6,7 @@ A living evaluation platform built on a master's research project (*Evaluation o
 Language Model Tendencies in the Context of Dietary Supplements*, Northeastern
 Illinois University, 2025). Read evidence-grounded statements about dietary supplements,
 check their scientific sources, rate your own agreement, and see how frontier LLMs rated
-the same statements — tracked over time as new models and new statements are added.
+the same statements, tracked over time as new models and new statements are added.
 
 ## Repository structure
 
@@ -49,13 +49,13 @@ canonical data and checks them against the values reported in the paper.
 The statement bank and evaluation runs are released under **CC BY 4.0**. Cite as:
 
 > Aynazarov, H. (2026). Dietary Supplement Opinion Lab Dataset (v1.0). Zenodo.
-> [DOI to be assigned — see ROADMAP]
+> [DOI to be assigned; see ROADMAP]
 
 Code is released under the MIT License (see LICENSE).
 
 ## Status
 
-v1.0 — statement bank of 400 source-grounded statements; run 1 (ten LLMs); static
+v1.0: statement bank of 400 statements, each paired with an evidence source; run 1 (ten LLMs); static
 showcase app. See ROADMAP.md for what comes next.
 
 ## Disclaimer

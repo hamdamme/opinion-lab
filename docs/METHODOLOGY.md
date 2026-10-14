@@ -13,8 +13,8 @@ other public health sources.
 
 Each statement is labeled on two study dimensions:
 
-- **Audience** — Consumer or Health Professional (200 statements each)
-- **Bias direction** — Positive (favoring supplement use) or Negative (expressing
+- **Audience**: Consumer or Health Professional (200 statements each)
+- **Bias direction**: Positive (favoring supplement use) or Negative (expressing
   skepticism) (200 statements each)
 
 The four subgroups contain exactly 100 statements each. Statement IDs encode the design:
@@ -33,7 +33,7 @@ dietitian (RD).
 Ten frontier LLMs rated every statement under zero-shot conditions with a shared prompt
 template asking for a 1–5 agreement rating: OpenAI GPT-3.5 Turbo, OpenAI o1 Mini,
 Anthropic Claude 3.7 Sonnet, Google Gemini 2.0 Flash, Meta LLaMA 3.3 70B, DeepSeek R1,
-Mistral Large, Mistral Saba, TII Falcon 3 10B, LG EXAONE Deep 7.8B — 4,000 ratings total.
+Mistral Large, Mistral Saba, TII Falcon 3 10B, LG EXAONE Deep 7.8B, 4,000 ratings total.
 Decoding parameters follow provider defaults; historical run metadata (exact resolved
 versions, timestamps, request settings) was not fully recorded and is labeled unknown.
 

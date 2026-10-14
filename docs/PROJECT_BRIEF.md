@@ -1,4 +1,4 @@
-# Project Brief — Dietary Supplement Opinion Lab
+# Project Brief, Dietary Supplement Opinion Lab
 
 Status: Approved
 Owner: Hamdam Aynazarov
@@ -7,8 +7,8 @@ Approval date: 2026-10-13
 ## Problem
 
 Large language models are increasingly used as informal sources of nutrition and health
-information, yet their systematic tendencies — over-agreement, framing sensitivity,
-audience-dependent bias — are invisible to end users. A 2025 master's study measured these
+information, yet their systematic tendencies (over-agreement, framing sensitivity,
+audience-dependent bias) are invisible to end users. A 2025 master's study measured these
 tendencies across ten frontier LLMs and 400 source-grounded statements, but the findings sit
 in a static document that few will ever read, and the measurements were frozen the day they
 were taken.
@@ -17,18 +17,18 @@ were taken.
 
 Turn the completed study into a living, citable public instrument: anyone can read an
 evidence-grounded statement, check its scientific source, form their own judgment, and
-compare it against AI positions — and each new evaluation run extends a public record of how
+compare it against AI positions. Each new evaluation run extends a public record of how
 model behavior shifts over time. For the owner, this is an academic-grade showcase of
 original, continuing research work (NIW portfolio), with a reproducible repository and a
 citable dataset.
 
 ## Target users and use cases
 
-- **Evaluators and researchers** — compare model tendencies on a standardized, source-anchored
+- **Evaluators and researchers**: compare model tendencies on a standardized, source-anchored
   statement bank; reuse the dataset with attribution (CC BY 4.0).
-- **Curious consumers** — read supplement statements next to their NIH/peer-reviewed sources,
+- **Curious consumers**: read supplement statements next to their NIH/peer-reviewed sources,
   rate their own agreement, discover where AI stands.
-- **Thesis committee and letter writers** — a public, reproducible artifact (repo + DOI) that
+- **Thesis committee and letter writers**: a public, reproducible artifact (repo + DOI) that
   advisor letters can cite concretely.
 
 ## Initial scope (v1.0)
