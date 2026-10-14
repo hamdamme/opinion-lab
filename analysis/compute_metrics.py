@@ -1,19 +1,38 @@
 """Recompute every numeric claim in MASTER_PAPER.docx from the raw collection
-(statements.json + results.json) and from the two CSV exports, then compare."""
-import json, re
-import pandas as pd
+(statements.json + results.json) and, when available, from the CSV export.
+
+Usage (from the repository root):
+    python analysis/compute_metrics.py
+
+The canonical inputs are versioned in this repository:
+  data/statements.json                  400 statements + reference ratings
+  data/runs/run-2025-04/results.json    model -> {statement id: rating}
+An optional cross-check against data/../app-data/final_full_results.csv runs
+only if that file is present.
+"""
+import json
+import re
+from pathlib import Path
+
 import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+RUN = DATA / "runs" / "run-2025-04"
 
 # ---------- load ----------
-stmts = {s["id"]: s for s in json.load(open("statements.json"))}
-results = json.load(open("results.json"))  # model -> {id: "rating"}
+stmts = {s["id"]: s for s in json.load(open(DATA / "statements.json"))}
+results = json.load(open(RUN / "results.json"))  # model -> {id: "rating"}
 models = list(results.keys())
+
+final_csv = ROOT / "app-data" / "final_full_results.csv"
+final = pd.read_csv(final_csv) if final_csv.exists() else None
+if final is None:
+    print(f"note: {final_csv.relative_to(ROOT)} not found, CSV cross-check skipped")
 
 ratings = {m: {i: int(v) for i, v in results[m].items()} for m in models}
 ref = {i: int(s["user_answer"]) for i, s in stmts.items()}
-
-final = pd.read_csv("../app-data/final_full_results.csv")
-feat = pd.read_csv("all_featured_results.csv")
 
 def group(id_):
     a, b, _ = id_.split(".")
@@ -82,18 +101,19 @@ for m in ["Meta Llama 3.3 70B", "Mistral Large", "Mistral Saba", "Deepseek R1"]:
         print(f"{m:28s} {aud:12s} pos(n={len(pos)})={mad(m,pos):.4f} neg(n={len(neg)})={mad(m,neg):.4f}")
 
 # ---------- which file matches results.json? ----------
-print("\n=== final_full_results.csv vs raw results.json (model ratings) ===")
-mismatch = 0
-for m in models:
-    col = final[m].tolist()
-    for i, cid in enumerate(final["ID"].astype(str)):
-        if int(col[i]) != ratings[m][cid]:
-            mismatch += 1
-print("rating mismatches:", mismatch)
+if final is not None:
+    print("\n=== final_full_results.csv vs raw results.json (model ratings) ===")
+    mismatch = 0
+    for m in models:
+        col = final[m].tolist()
+        for i, cid in enumerate(final["ID"].astype(str)):
+            if int(col[i]) != ratings[m][cid]:
+                mismatch += 1
+    print("rating mismatches:", mismatch)
 
-print("\n=== reference answers: statements.json vs final CSV ===")
-mm = sum(1 for i, cid in enumerate(final["ID"].astype(str)) if int(final["User Answer"][i]) != ref[cid])
-print("reference mismatches:", mm)
+    print("\n=== reference answers: statements.json vs final CSV ===")
+    mm = sum(1 for i, cid in enumerate(final["ID"].astype(str)) if int(final["User Answer"][i]) != ref[cid])
+    print("reference mismatches:", mm)
 
 # ---------- Table 1 sample rows from the paper ----------
 print("\n=== Table 1 sample rows check ===")
