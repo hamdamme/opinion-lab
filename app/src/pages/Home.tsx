@@ -47,7 +47,19 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-3">
+            <div className="hidden text-right leading-tight sm:block" title="Statements you have rated">
+              <div className="text-[11px] font-semibold tabular-nums">
+                {rated}
+                <span className="text-muted-foreground"> / {ds.dataset.statements.length}</span>
+              </div>
+              <div className="mt-0.5 h-1 w-16 overflow-hidden rounded bg-muted">
+                <div
+                  className="h-1 rounded bg-emerald-600 transition-all"
+                  style={{ width: `${Math.min(100, (rated / ds.dataset.statements.length) * 100)}%` }}
+                />
+              </div>
+            </div>
             <Tabs value={tab} onValueChange={(v) => setTab(v as Tab)}>
               <TabsList>
                 <TabsTrigger value="explore"><Compass className="mr-1.5 h-4 w-4" /><span className="hidden sm:inline">Explore</span></TabsTrigger>

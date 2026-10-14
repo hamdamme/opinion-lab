@@ -1,13 +1,28 @@
 import { useMemo, useState } from "react";
 import type { DatasetState } from "@/hooks/useDataset";
 import type { Statement } from "@/types";
+import { LIKERT_LABELS } from "@/types";
 import { LikertPicker } from "@/components/LikertPicker";
 import { RatingCompare } from "@/components/RatingCompare";
 import { LiveCompareDialog } from "@/components/LiveCompareDialog";
+import { computeStats } from "@/lib/stats";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown, ChevronUp, RotateCcw, FlaskConical, ExternalLink } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  RotateCcw,
+  FlaskConical,
+  ExternalLink,
+  CheckCircle2,
+  Scale,
+  Lock,
+} from "lucide-react";
+
+const BATCH_SIZE = 5;
+const BATCH_KEY = "opinionlab.batch.v1";
 
 /** Deterministic shuffle so the statement order is stable within a session. */
 function shuffled<T>(arr: T[], seed: number): T[] {
@@ -21,6 +36,15 @@ function shuffled<T>(arr: T[], seed: number): T[] {
   return a;
 }
 
+function loadBatch(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(BATCH_KEY) ?? "[]");
+    return Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 interface RitualProps {
   ds: DatasetState;
 }
@@ -32,6 +56,15 @@ export function Ritual({ ds }: RitualProps) {
   const [evidenceOpen, setEvidenceOpen] = useState(false);
   const [detailOpen, setDetailOpen] = useState(false);
   const [liveOpen, setLiveOpen] = useState<Statement | null>(null);
+  const [batch, setBatch] = useState<string[]>(loadBatch);
+  const [view, setView] = useState<"collect" | "ready" | "compare">(
+    loadBatch().length >= BATCH_SIZE ? "ready" : "collect"
+  );
+
+  const updateBatch = (b: string[]) => {
+    setBatch(b);
+    localStorage.setItem(BATCH_KEY, JSON.stringify(b));
+  };
 
   const topics = useMemo(
     () => (dataset ? Array.from(new Set(dataset.statements.map((s) => s.topic))).sort() : []),
@@ -51,6 +84,26 @@ export function Ritual({ ds }: RitualProps) {
   const current: Statement | null = pool.find((s) => s.id === currentId) ?? pool[0] ?? null;
   const myAnswer = current ? (answers[current.id] ?? null) : null;
   const llmNames = dataset?.llms.map((l) => l.name) ?? [];
+  /** Statements rated this round — committed, but not yet compared. */
+  const pending = current != null && batch.includes(current.id);
+
+  // ---------- round summary (compare view) ----------
+  const batchStatements = useMemo(
+    () =>
+      batch
+        .map((id) => dataset?.statements.find((s) => s.id === id))
+        .filter((s): s is Statement => !!s),
+    [batch, dataset]
+  );
+
+  const roundStats = useMemo(() => {
+    if (!batchStatements.length || !llmNames.length) return null;
+    const mine = computeStats(batchStatements, llmNames, (s) => answers[s.id] ?? null);
+    const closest = [...mine].sort((a, b) => a.mae - b.mae)[0];
+    const gaps = batchStatements.map((s) => (answers[s.id] ?? 0) - s.reference);
+    const bias = gaps.reduce((a, x) => a + x, 0) / gaps.length;
+    return { closest, bias };
+  }, [batchStatements, llmNames, answers]);
 
   const reveal = useMemo(() => {
     if (!current || myAnswer == null) return null;
@@ -75,74 +128,181 @@ export function Ritual({ ds }: RitualProps) {
     setDetailOpen(false);
   };
 
-  if (!dataset || !current) return null;
+  const commit = (v: number) => {
+    if (!current) return;
+    rate(current.id, v);
+    setCurrentId(current.id); // anchor to this statement so the "recorded" card shows
+    const b = [...batch.filter((x) => x !== current.id), current.id];
+    updateBatch(b);
+    setDetailOpen(false);
+    if (b.length >= BATCH_SIZE) setView("ready");
+  };
 
-  return (
-    <div className="mx-auto max-w-2xl">
-      {/* Topic picker — deliberately quiet */}
-      <div className="mb-6 flex items-center justify-between gap-3">
-        <Select value={topic} onValueChange={(v) => { setTopic(v); setCurrentId(null); setDetailOpen(false); }}>
-          <SelectTrigger className="h-8 w-[220px] text-xs text-muted-foreground">
-            <SelectValue placeholder="All topics" />
-          </SelectTrigger>
-          <SelectContent className="max-h-72">
-            <SelectItem value="all">Any topic</SelectItem>
-            {topics.map((t) => (
-              <SelectItem key={t} value={t}>{t}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <Button variant="ghost" size="sm" onClick={next} className="text-xs text-muted-foreground">
-          <RotateCcw className="mr-1.5 h-3.5 w-3.5" /> New statement
-        </Button>
-      </div>
+  const startNextRound = () => {
+    updateBatch([]);
+    setView("collect");
+    const nxt = pool.find((s) => answers[s.id] == null);
+    setCurrentId(nxt?.id ?? null);
+    setEvidenceOpen(false);
+    setDetailOpen(false);
+  };
 
-      {/* The question */}
-      <div className="rounded-2xl border bg-card p-8 shadow-sm sm:p-10">
-        <p className="mb-4 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
-          Do you agree with this claim?
-        </p>
-        <blockquote className="text-xl leading-relaxed sm:text-2xl">{current.statement}</blockquote>
+  if (!dataset) return null;
 
-        {/* Evidence — one tap away, never forced */}
-        <Collapsible open={evidenceOpen} onOpenChange={setEvidenceOpen} className="mt-6">
-          <CollapsibleTrigger asChild>
-            <button className="flex items-center gap-1.5 text-sm font-medium text-emerald-700 hover:underline dark:text-emerald-400">
-              {evidenceOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-              {evidenceOpen ? "Hide the evidence" : "Check the evidence first"}
-            </button>
-          </CollapsibleTrigger>
-          <CollapsibleContent className="mt-3 rounded-lg border bg-muted/40 p-4">
-            <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Source · {current.topic}
-            </div>
-            <a
-              href={current.source}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-1 inline-flex items-center gap-1.5 break-all text-sm font-medium text-primary hover:underline"
+  // ---------- Round complete — the "ready to compare?" moment ----------
+  if (view === "ready") {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="rounded-2xl border bg-card p-10 text-center shadow-sm sm:p-14">
+          <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-600" />
+          <h2 className="mt-5 text-2xl font-bold">Round complete — {BATCH_SIZE} judgments locked in.</h2>
+          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+            You committed to every answer before seeing a single AI response — exactly how the study's
+            human raters worked. Now it's time to see how your judgment compares to the reference rater
+            and all {llmNames.length} LLMs.
+          </p>
+          <div className="mt-7 flex flex-col items-center gap-3">
+            <Button size="lg" onClick={() => setView("compare")}>
+              <Scale className="mr-2 h-4 w-4" /> Ready to compare
+            </Button>
+            <button
+              className="text-xs text-muted-foreground underline-offset-2 hover:underline"
+              onClick={startNextRound}
             >
-              <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-              {current.source.replace(/^https?:\/\//, "")}
-            </a>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Read it before you rate — or rate from what you already know. Both are informative.
-            </p>
-          </CollapsibleContent>
-        </Collapsible>
+              Discard this round and start over
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-        {/* Your rating */}
-        <div className="mt-8">
-          <LikertPicker value={myAnswer} onChange={(v) => { rate(current.id, v); setDetailOpen(false); }} />
-          {myAnswer == null && (
-            <p className="mt-2 text-xs text-muted-foreground">
-              Your answer stays in this browser — it unlocks the AI comparison.
+  // ---------- Compare screen ----------
+  if (view === "compare") {
+    return (
+      <div className="mx-auto max-w-2xl space-y-6">
+        <div className="rounded-2xl border bg-card p-6 shadow-sm sm:p-8">
+          <p className="mb-2 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+            Your round, compared
+          </p>
+          {roundStats && (
+            <p className="text-sm leading-relaxed">
+              Across these {batchStatements.length} statements, the AI closest to your judgment was{" "}
+              <Badge className="bg-emerald-600">{roundStats.closest.name}</Badge> (average gap{" "}
+              {roundStats.closest.mae.toFixed(2)} points).{" "}
+              {Math.abs(roundStats.bias) < 0.15 ? (
+                <>Overall you tracked the human reference rater almost exactly.</>
+              ) : (
+                <>
+                  On average you rated{" "}
+                  <span className="font-semibold">
+                    {Math.abs(roundStats.bias).toFixed(2)} points{" "}
+                    {roundStats.bias > 0 ? "more agreeable" : "more skeptical"}
+                  </span>{" "}
+                  than the reference rater.
+                </>
+              )}
             </p>
           )}
+          <Button className="mt-5" onClick={startNextRound}>
+            Start the next round <ChevronUp className="ml-1 h-4 w-4 rotate-90" />
+          </Button>
         </div>
 
-        {/* The reveal */}
-        {myAnswer != null && reveal && (
+        {batchStatements.map((s) => {
+          const mine = answers[s.id];
+          return (
+            <div key={s.id} className="rounded-2xl border bg-card p-6 shadow-sm">
+              <blockquote className="text-base leading-relaxed">{s.statement}</blockquote>
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                <Badge variant="outline" className="border-emerald-600/40 bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
+                  You: {mine} · {LIKERT_LABELS[mine]}
+                </Badge>
+                <Badge variant="outline">
+                  Reference rater: {s.reference} · {LIKERT_LABELS[s.reference]}
+                </Badge>
+                <span className="text-muted-foreground">
+                  {s.audience} · {s.bias} framing ·{" "}
+                  <a href={s.source} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium text-primary hover:underline">
+                    <ExternalLink className="h-3 w-3" /> source
+                  </a>
+                </span>
+              </div>
+              <div className="mt-4">
+                <RatingCompare
+                  statement={s}
+                  llmNames={llmNames}
+                  reference={s.reference}
+                  highlightName="Bars show each model vs the reference mark"
+                />
+              </div>
+              <Button variant="outline" size="sm" className="mt-4" onClick={() => setLiveOpen(s)}>
+                <FlaskConical className="mr-1.5 h-3.5 w-3.5" />
+                Compare a live model (bring your own key)
+              </Button>
+            </div>
+          );
+        })}
+
+        <div className="flex justify-center">
+          <Button variant="ghost" onClick={() => setView("ready")}>
+            <ChevronUp className="mr-1 h-4 w-4 -rotate-90" /> Back to the summary
+          </Button>
+        </div>
+
+        <LiveCompareDialog ds={ds} statement={liveOpen} onClose={() => setLiveOpen(null)} />
+      </div>
+    );
+  }
+
+  if (!current) return null;
+
+  // ---------- Collecting: just committed, waiting to move on ----------
+  if (pending && myAnswer != null) {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="rounded-2xl border bg-card p-8 text-center shadow-sm sm:p-10">
+          <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" />
+          <h2 className="mt-4 text-xl font-semibold">Recorded — your answer is locked in.</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {batch.length} of {BATCH_SIZE} this round. No AI answers yet — they stay hidden until your
+            round is complete.
+          </p>
+          <Button className="mt-6" onClick={next}>
+            Next statement <ChevronUp className="ml-1 h-4 w-4 rotate-90" />
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // ---------- Collecting: statement already rated in a previous round ----------
+  if (myAnswer != null && reveal) {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="mb-6 flex items-center justify-between gap-3">
+          <Select value={topic} onValueChange={(v) => { setTopic(v); setCurrentId(null); setDetailOpen(false); }}>
+            <SelectTrigger className="h-8 w-[220px] text-xs text-muted-foreground">
+              <SelectValue placeholder="All topics" />
+            </SelectTrigger>
+            <SelectContent className="max-h-72">
+              <SelectItem value="all">Any topic</SelectItem>
+              {topics.map((t) => (
+                <SelectItem key={t} value={t}>{t}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Button variant="ghost" size="sm" onClick={next} className="text-xs text-muted-foreground">
+            <RotateCcw className="mr-1.5 h-3.5 w-3.5" /> New statement
+          </Button>
+        </div>
+
+        <div className="rounded-2xl border bg-card p-8 shadow-sm sm:p-10">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+            You rated this one before
+          </p>
+          <blockquote className="text-xl leading-relaxed sm:text-2xl">{current.statement}</blockquote>
+
           <div className="mt-8 border-t pt-6">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               <div>
@@ -154,7 +314,7 @@ export function Ritual({ ds }: RitualProps) {
                 <div className="text-2xl font-semibold">{current.reference}</div>
               </div>
               <div>
-                <div className="text-[11px] uppercase tracking-wide text-muted-foreground">10 AIs · average</div>
+                <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{llmNames.length} AIs · average</div>
                 <div className="text-2xl font-semibold">{reveal.mean.toFixed(2)}</div>
               </div>
               <div>
@@ -193,14 +353,95 @@ export function Ritual({ ds }: RitualProps) {
               </Button>
             </div>
           </div>
-        )}
+        </div>
+
+        <p className="mt-4 text-center text-xs text-muted-foreground">
+          Statements are drawn from a curated research bank of {dataset.statements.length}, each paired with a scientific source.
+        </p>
+
+        <LiveCompareDialog ds={ds} statement={liveOpen} onClose={() => setLiveOpen(null)} />
+      </div>
+    );
+  }
+
+  // ---------- Collecting: unrated statement — commit first, compare later ----------
+  return (
+    <div className="mx-auto max-w-2xl">
+      <div className="mb-6 flex items-center justify-between gap-3">
+        <Select value={topic} onValueChange={(v) => { setTopic(v); setCurrentId(null); setDetailOpen(false); }}>
+          <SelectTrigger className="h-8 w-[220px] text-xs text-muted-foreground">
+            <SelectValue placeholder="All topics" />
+          </SelectTrigger>
+          <SelectContent className="max-h-72">
+            <SelectItem value="all">Any topic</SelectItem>
+            {topics.map((t) => (
+              <SelectItem key={t} value={t}>{t}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-muted-foreground">
+            Round: <span className="font-semibold text-foreground">{batch.length}/{BATCH_SIZE}</span>
+          </span>
+          <Button variant="ghost" size="sm" onClick={next} className="text-xs text-muted-foreground">
+            <RotateCcw className="mr-1.5 h-3.5 w-3.5" /> Skip
+          </Button>
+        </div>
+      </div>
+
+      <div className="rounded-2xl border bg-card p-8 shadow-sm sm:p-10">
+        <p className="mb-4 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+          Do you agree with this claim?
+        </p>
+        <blockquote className="text-xl leading-relaxed sm:text-2xl">{current.statement}</blockquote>
+
+        {/* Evidence — one tap away, never forced */}
+        <Collapsible open={evidenceOpen} onOpenChange={setEvidenceOpen} className="mt-6">
+          <CollapsibleTrigger asChild>
+            <button className="flex items-center gap-1.5 text-sm font-medium text-emerald-700 hover:underline dark:text-emerald-400">
+              {evidenceOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              {evidenceOpen ? "Hide the evidence" : "Check the evidence first"}
+            </button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="mt-3 rounded-lg border bg-muted/40 p-4">
+            <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Source · {current.topic}
+            </div>
+            <a
+              href={current.source}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 inline-flex items-center gap-1.5 break-all text-sm font-medium text-primary hover:underline"
+            >
+              <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+              {current.source.replace(/^https?:\/\//, "")}
+            </a>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Read it before you rate — or rate from what you already know. Both are informative.
+            </p>
+          </CollapsibleContent>
+        </Collapsible>
+
+        {/* Your rating — the commitment */}
+        <div className="mt-8">
+          <LikertPicker value={myAnswer} onChange={commit} />
+          <p className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
+            <Lock className="h-3 w-3" />
+            {BATCH_SIZE - batch.length > 0 ? (
+              <>
+                Commit to {BATCH_SIZE - batch.length} more statement{BATCH_SIZE - batch.length === 1 ? "" : "s"} to unlock the
+                AI comparison — your judgment comes first.
+              </>
+            ) : (
+              <>Your judgment comes first — AI answers stay locked until your round is complete.</>
+            )}
+          </p>
+        </div>
       </div>
 
       <p className="mt-4 text-center text-xs text-muted-foreground">
         Statements are drawn from a curated research bank of {dataset.statements.length}, each paired with a scientific source.
       </p>
-
-      <LiveCompareDialog ds={ds} statement={liveOpen} onClose={() => setLiveOpen(null)} />
     </div>
   );
 }

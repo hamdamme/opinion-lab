@@ -27,6 +27,20 @@ export function Insights({ ds }: { ds: DatasetState }) {
     ? [...stats.mine].sort((a, b) => a.mae - b.mae)[0]
     : null;
 
+  const myRated = dataset.statements.filter((s) => answers[s.id] != null);
+  const persona = useMemo(() => {
+    if (!myRated.length) return null;
+    const names = dataset.llms.map((l) => l.name);
+    const myMean = myRated.reduce((a, s) => a + answers[s.id], 0) / myRated.length;
+    const refMean = myRated.reduce((a, s) => a + s.reference, 0) / myRated.length;
+    const bias = myMean - refMean;
+    const cautiousVs = names.filter((n) => {
+      const m = myRated.reduce((a, s) => a + s.ratings[n], 0) / myRated.length;
+      return m > myMean;
+    }).length;
+    return { bias, cautiousVs, nModels: names.length };
+  }, [dataset, myRated, answers]);
+
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       {n >= 5 && closest && (
@@ -44,6 +58,27 @@ export function Insights({ ds }: { ds: DatasetState }) {
               {pct(closest.exact)}. Your ratings serve as the reference here; this is a description of
               similarity, not of correctness.
             </p>
+            {persona && (
+              <p className="mt-3">
+                Your personal read: on average you rate{" "}
+                {Math.abs(persona.bias) < 0.15 ? (
+                  <>almost exactly in step with the human reference rater</>
+                ) : (
+                  <>
+                    <span className="font-semibold">
+                      {Math.abs(persona.bias).toFixed(2)} points{" "}
+                      {persona.bias > 0 ? "more agreeable" : "more skeptical"}
+                    </span>{" "}
+                    than the reference rater
+                  </>
+                )}
+                , and you are more cautious than{" "}
+                <span className="font-semibold">
+                  {persona.cautiousVs} of {persona.nModels}
+                </span>{" "}
+                models.
+              </p>
+            )}
             <p className="mt-3 text-xs text-muted-foreground">
               Rate more statements for a stabler picture. Everything stays in your browser.
             </p>
