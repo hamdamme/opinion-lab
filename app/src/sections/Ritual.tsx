@@ -17,7 +17,6 @@ import {
   FlaskConical,
   ExternalLink,
   CheckCircle2,
-  Scale,
   Lock,
 } from "lucide-react";
 
@@ -45,6 +44,19 @@ function loadBatch(): string[] {
   }
 }
 
+/** Popular supplement shortcuts shown as one-tap chips above the topic dropdown. */
+const QUICK_TOPICS: { label: string; value: string }[] = [
+  { label: "All", value: "all" },
+  { label: "Vitamin D", value: "Vitamin D" },
+  { label: "Vitamin C", value: "Vitamin C" },
+  { label: "B12", value: "Vitamin B12" },
+  { label: "Calcium", value: "Calcium" },
+  { label: "Zinc", value: "Zinc" },
+  { label: "Magnesium", value: "Magnesium" },
+  { label: "Iron", value: "Iron" },
+  { label: "Multivitamins", value: "Multivitamins/Minerals (MVMS)" },
+];
+
 interface RitualProps {
   ds: DatasetState;
 }
@@ -57,8 +69,8 @@ export function Ritual({ ds }: RitualProps) {
   const [detailOpen, setDetailOpen] = useState(false);
   const [liveOpen, setLiveOpen] = useState<Statement | null>(null);
   const [batch, setBatch] = useState<string[]>(loadBatch);
-  const [view, setView] = useState<"collect" | "ready" | "compare">(
-    loadBatch().length >= BATCH_SIZE ? "ready" : "collect"
+  const [view, setView] = useState<"collect" | "compare">(
+    loadBatch().length >= BATCH_SIZE ? "compare" : "collect"
   );
 
   const updateBatch = (b: string[]) => {
@@ -135,7 +147,7 @@ export function Ritual({ ds }: RitualProps) {
     const b = [...batch.filter((x) => x !== current.id), current.id];
     updateBatch(b);
     setDetailOpen(false);
-    if (b.length >= BATCH_SIZE) setView("ready");
+    if (b.length >= BATCH_SIZE) setView("compare");
   };
 
   const startNextRound = () => {
@@ -148,34 +160,6 @@ export function Ritual({ ds }: RitualProps) {
   };
 
   if (!dataset) return null;
-
-  // ---------- Round complete — the "ready to compare?" moment ----------
-  if (view === "ready") {
-    return (
-      <div className="mx-auto max-w-2xl">
-        <div className="rounded-2xl border bg-card p-10 text-center shadow-sm sm:p-14">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-600" />
-          <h2 className="mt-5 text-2xl font-bold">Round complete. {BATCH_SIZE} judgments locked in.</h2>
-          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-            You committed to every answer before seeing a single AI response, exactly how the study's
-            human raters worked. Now it's time to see how your judgment compares to the reference rater
-            and all {llmNames.length} LLMs.
-          </p>
-          <div className="mt-7 flex flex-col items-center gap-3">
-            <Button size="lg" onClick={() => setView("compare")}>
-              <Scale className="mr-2 h-4 w-4" /> Ready to compare
-            </Button>
-            <button
-              className="text-xs text-muted-foreground underline-offset-2 hover:underline"
-              onClick={startNextRound}
-            >
-              Discard this round and start over
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   // ---------- Compare screen ----------
   if (view === "compare") {
@@ -204,13 +188,25 @@ export function Ritual({ ds }: RitualProps) {
               )}
             </p>
           )}
-          <Button className="mt-5" onClick={startNextRound}>
-            Start the next round <ChevronUp className="ml-1 h-4 w-4 rotate-90" />
-          </Button>
+          <div className="mt-5 flex items-center gap-4">
+            <Button onClick={startNextRound}>
+              Start the next round <ChevronUp className="ml-1 h-4 w-4 rotate-90" />
+            </Button>
+            <button
+              className="text-xs text-muted-foreground underline-offset-2 hover:underline"
+              onClick={startNextRound}
+            >
+              Discard this round
+            </button>
+          </div>
         </div>
 
         {batchStatements.map((s) => {
-          const mine = answers[s.id];
+          const mine = answers[s.id] ?? 0;
+          const aiAvg = llmNames.reduce((a, n) => a + s.ratings[n], 0) / llmNames.length;
+          const aiClosest = llmNames.reduce((a, n) =>
+            Math.abs(s.ratings[n] - mine) < Math.abs(s.ratings[a] - mine) ? n : a
+          );
           return (
             <div key={s.id} className="rounded-2xl border bg-card p-6 shadow-sm">
               <blockquote className="text-base leading-relaxed">{s.statement}</blockquote>
@@ -221,34 +217,19 @@ export function Ritual({ ds }: RitualProps) {
                 <Badge variant="outline">
                   Reference rater: {s.reference} · {LIKERT_LABELS[s.reference]}
                 </Badge>
-                <span className="text-muted-foreground">
-                  {s.audience} · {s.bias} framing ·{" "}
-                  <a href={s.source} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium text-primary hover:underline">
-                    <ExternalLink className="h-3 w-3" /> source
-                  </a>
-                </span>
+                <Badge variant="outline" className="text-muted-foreground">
+                  {llmNames.length} AIs averaged {aiAvg.toFixed(1)} · closest: {aiClosest} ({s.ratings[aiClosest]})
+                </Badge>
               </div>
-              <div className="mt-4">
-                <RatingCompare
-                  statement={s}
-                  llmNames={llmNames}
-                  reference={s.reference}
-                  highlightName="Bars show each model vs the reference mark"
-                />
-              </div>
-              <Button variant="outline" size="sm" className="mt-4" onClick={() => setLiveOpen(s)}>
-                <FlaskConical className="mr-1.5 h-3.5 w-3.5" />
-                Compare a live model (bring your own key)
-              </Button>
+              <p className="mt-2 text-xs text-muted-foreground">
+                {s.audience} · {s.bias} framing ·{" "}
+                <a href={s.source} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-medium text-primary hover:underline">
+                  <ExternalLink className="h-3 w-3" /> source
+                </a>
+              </p>
             </div>
           );
         })}
-
-        <div className="flex justify-center">
-          <Button variant="ghost" onClick={() => setView("ready")}>
-            <ChevronUp className="mr-1 h-4 w-4 -rotate-90" /> Back to the summary
-          </Button>
-        </div>
 
         <LiveCompareDialog ds={ds} statement={liveOpen} onClose={() => setLiveOpen(null)} />
       </div>
@@ -280,7 +261,26 @@ export function Ritual({ ds }: RitualProps) {
   if (myAnswer != null && reveal) {
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="mb-6 flex items-center justify-between gap-3">
+        {/* Popular picks, one tap */}
+      <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+        {QUICK_TOPICS.map((q) => (
+          <button
+            key={q.value}
+            type="button"
+            onClick={() => { setTopic(q.value); setCurrentId(null); setDetailOpen(false); }}
+            className={
+              "shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition-colors " +
+              (topic === q.value
+                ? "border-emerald-600 bg-emerald-600 text-white"
+                : "text-muted-foreground hover:border-emerald-600/50 hover:text-foreground")
+            }
+          >
+            {q.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="mb-6 flex items-center justify-between gap-3">
           <Select value={topic} onValueChange={(v) => { setTopic(v); setCurrentId(null); setDetailOpen(false); }}>
             <SelectTrigger className="h-8 w-[220px] text-xs text-muted-foreground">
               <SelectValue placeholder="All topics" />
@@ -367,6 +367,25 @@ export function Ritual({ ds }: RitualProps) {
   // ---------- Collecting: unrated statement — commit first, compare later ----------
   return (
     <div className="mx-auto max-w-2xl">
+      {/* Popular picks, one tap */}
+      <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+        {QUICK_TOPICS.map((q) => (
+          <button
+            key={q.value}
+            type="button"
+            onClick={() => { setTopic(q.value); setCurrentId(null); setDetailOpen(false); }}
+            className={
+              "shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition-colors " +
+              (topic === q.value
+                ? "border-emerald-600 bg-emerald-600 text-white"
+                : "text-muted-foreground hover:border-emerald-600/50 hover:text-foreground")
+            }
+          >
+            {q.label}
+          </button>
+        ))}
+      </div>
+
       <div className="mb-6 flex items-center justify-between gap-3">
         <Select value={topic} onValueChange={(v) => { setTopic(v); setCurrentId(null); setDetailOpen(false); }}>
           <SelectTrigger className="h-8 w-[220px] text-xs text-muted-foreground">
