@@ -4,6 +4,8 @@ Status: Approved
 Owner: Hamdam Aynazarov
 Approval date: 2026-10-13
 
+Study conducted February to April 2025; this brief covers the platform continuation.
+
 ## Problem
 
 Large language models are increasingly used as informal sources of nutrition and health
