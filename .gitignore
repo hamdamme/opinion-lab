@@ -26,3 +26,4 @@ __pycache__/
 
 # QA / render output
 qa/
+.vercel
