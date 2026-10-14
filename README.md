@@ -57,7 +57,7 @@ canonical data and checks them against the values reported in the paper.
 The statement bank and evaluation runs are released under **CC BY 4.0**. Cite as:
 
 > Aynazarov, H. (2026). Dietary Supplement Opinion Lab Dataset (v1.0). Zenodo.
-> [DOI to be assigned; see ROADMAP]
+> https://doi.org/10.5281/zenodo.23357963
 
 Code is released under the MIT License (see LICENSE).
 

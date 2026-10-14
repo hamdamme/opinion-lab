@@ -1,6 +1,6 @@
 # Project Roadmap
 
-Last updated: 2026-10-13
+Last updated: 2026-10-14
 
 Sources of truth:
 - [Project Brief](docs/PROJECT_BRIEF.md)
@@ -10,15 +10,16 @@ Sources of truth:
 | Phase | Scope | Effort estimate | Status |
 | --- | --- | --- | --- |
 | 0. Research foundation | Thesis verification and corrections; canonical dataset; analysis scripts | done (2026-10-12/13) | Complete |
-| 1. Repository foundation | Canonical repo, docs, data versioning, first release v1.0 | 1 session | In progress |
+| 1. Repository foundation | Canonical repo, docs, data versioning, first release v1.0 | 1 session | Complete |
 | 2. Showcase app v1 | Clean question → evidence → rating → reveal flow; leaderboard; methodology page; hide study internals by default | 2–4 sessions | Complete |
-| 3. Publication | GitHub repo public; Zenodo archive + DOI; deployment (Vercel/Cloudflare Pages) | 1 session + owner actions | Not started |
+| 3. Publication | GitHub repo public; Zenodo archive + DOI; deployment (Vercel/Cloudflare Pages) | 1 session + owner actions | Complete (2026-10-14) |
 | 4. Run 2 | Add 1–3 current models with a documented prompt version; drift view in the app | 1–2 sessions | Not started |
 | 5. Statement bank growth | Owner-reviewed additions with source notes; app updates per data release | ongoing | Not started |
 
 ## Current focus
 
-Phase 1: finalize repository seed, first local commit, hand GitHub/Zenodo checklist to owner.
+Phases 0–3 are complete as of 2026-10-14. Phase 4 (Run 2) is next when the owner
+is ready.
 
 ## Blockers
 
@@ -27,5 +28,5 @@ Phase 1: finalize repository seed, first local commit, hand GitHub/Zenodo checkl
 
 ## Release status
 
-Not released. v1.0 is planned as: canonical repo public, dataset archived on Zenodo with
-DOI, app deployed.
+Released. v1.0 (2026-10-14): public repo (hamdamme/opinion-lab), dataset archived on
+Zenodo (https://doi.org/10.5281/zenodo.23357963), app live at https://opinionlab.hamdam.me.

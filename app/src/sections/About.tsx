@@ -10,7 +10,7 @@ const BLOCKS = [
   {
     icon: Database,
     title: "The data",
-    body: "The statement bank and every evaluation run are versioned public data (CC BY 4.0). Run 1 (April 2025) covers ten models. New runs are added as the platform evolves, so the public record extends over time instead of being rewritten. Cite as: Aynazarov, H. (2026). Dietary Supplement Opinion Lab Dataset (v1.0).",
+    body: "The statement bank and every evaluation run are versioned public data (CC BY 4.0). Run 1 (April 2025) covers ten models. New runs are added as the platform evolves, so the public record extends over time instead of being rewritten. Cite as: Aynazarov, H. (2026). Dietary Supplement Opinion Lab Dataset (v1.0). https://doi.org/10.5281/zenodo.23357963",
   },
   {
     icon: FileCheck2,
