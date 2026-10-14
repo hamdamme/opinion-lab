@@ -53,7 +53,7 @@ export function Insights({ ds }: { ds: DatasetState }) {
           <CardContent className="text-sm">
             <p>
               Across the statements you rated, the AI closest to your judgment is{" "}
-              <Badge className="bg-emerald-600">{closest.name}</Badge> — average gap{" "}
+              <Badge className="bg-emerald-600">{closest.name}</Badge>, with an average gap of{" "}
               <span className="font-semibold">{closest.mae.toFixed(2)}</span> points, exact agreement{" "}
               {pct(closest.exact)}. Your ratings serve as the reference here; this is a description of
               similarity, not of correctness.
@@ -123,7 +123,7 @@ export function Insights({ ds }: { ds: DatasetState }) {
           </Table>
           <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
             Reference ratings come from a knowledgeable consumer (consumer statements) and a registered
-            dietitian (professional statements). Metrics measure agreement patterns — not factual or
+            dietitian (professional statements). Metrics measure agreement patterns, not factual or
             medical correctness. Recomputed from the published dataset by{" "}
             <code className="text-[11px]">analysis/compute_metrics.py</code>.
           </p>

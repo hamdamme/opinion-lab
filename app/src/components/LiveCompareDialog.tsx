@@ -126,7 +126,7 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
               <div className="space-y-3">
                 <div className="rounded-md border p-3 text-sm">
                   <span className="font-semibold">{cfg.model}</span> rated{" "}
-                  <Badge className="mx-1">{result.rating} — {LIKERT_LABELS[result.rating]}</Badge>
+                  <Badge className="mx-1">{result.rating} · {LIKERT_LABELS[result.rating]}</Badge>
                   vs study reference {statement.reference} (
                   {result.rating - statement.reference === 0
                     ? "exact agreement"

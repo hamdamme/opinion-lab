@@ -5,7 +5,7 @@ const BLOCKS = [
   {
     icon: BookOpen,
     title: "The study",
-    body: "400 Likert-scale statements about dietary supplements, each paired with an evidence source — primarily NIH Office of Dietary Supplements fact sheets, with a small number from NCCIH, PubMed Central, and other public health sources. Statements are balanced across audience (consumer / health professional) and framing (favoring / questioning supplements), 100 per group. Ten frontier LLMs rated every statement zero-shot with a shared prompt template: 4,000 ratings.",
+    body: "400 Likert-scale statements about dietary supplements, each paired with an evidence source, primarily NIH Office of Dietary Supplements fact sheets, with a small number from NCCIH, PubMed Central, and other public health sources. Statements are balanced across audience (consumer / health professional) and framing (favoring / questioning supplements), 100 per group. Ten frontier LLMs rated every statement zero-shot with a shared prompt template: 4,000 ratings.",
   },
   {
     icon: Database,
@@ -31,7 +31,7 @@ export function About() {
         <h2 className="text-lg font-semibold">About this platform</h2>
         <p className="mt-1 text-sm text-muted-foreground">
           Opinion Lab is a living evaluation instrument built on a master's research project
-          at Northeastern Illinois University (2025) — maintained and extended by its author.
+          at Northeastern Illinois University (2025), maintained and extended by its author.
         </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">

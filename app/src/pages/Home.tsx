@@ -81,7 +81,7 @@ export default function Home() {
 
       <footer className="border-t py-5 text-center text-xs text-muted-foreground">
         {rated > 0 && <span className="mr-2">You have rated {rated} statement{rated === 1 ? "" : "s"}.</span>}
-        Research and education only — not medical or nutritional advice.
+        Research and education only, not medical or nutritional advice.
       </footer>
     </div>
   );

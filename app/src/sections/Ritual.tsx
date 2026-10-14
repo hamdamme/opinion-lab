@@ -155,9 +155,9 @@ export function Ritual({ ds }: RitualProps) {
       <div className="mx-auto max-w-2xl">
         <div className="rounded-2xl border bg-card p-10 text-center shadow-sm sm:p-14">
           <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-600" />
-          <h2 className="mt-5 text-2xl font-bold">Round complete — {BATCH_SIZE} judgments locked in.</h2>
+          <h2 className="mt-5 text-2xl font-bold">Round complete. {BATCH_SIZE} judgments locked in.</h2>
           <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-            You committed to every answer before seeing a single AI response — exactly how the study's
+            You committed to every answer before seeing a single AI response, exactly how the study's
             human raters worked. Now it's time to see how your judgment compares to the reference rater
             and all {llmNames.length} LLMs.
           </p>
@@ -263,10 +263,10 @@ export function Ritual({ ds }: RitualProps) {
       <div className="mx-auto max-w-2xl">
         <div className="rounded-2xl border bg-card p-8 text-center shadow-sm sm:p-10">
           <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" />
-          <h2 className="mt-4 text-xl font-semibold">Recorded — your answer is locked in.</h2>
+          <h2 className="mt-4 text-xl font-semibold">Recorded.</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            {batch.length} of {BATCH_SIZE} this round. No AI answers yet — they stay hidden until your
-            round is complete.
+            That&apos;s {batch.length} of {BATCH_SIZE} this round. Nice pace, the comparison is getting
+            closer.
           </p>
           <Button className="mt-6" onClick={next}>
             Next statement <ChevronUp className="ml-1 h-4 w-4 rotate-90" />
@@ -417,7 +417,7 @@ export function Ritual({ ds }: RitualProps) {
               {current.source.replace(/^https?:\/\//, "")}
             </a>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Read it before you rate — or rate from what you already know. Both are informative.
+              Read it before you rate, or rate from what you already know. Both are informative.
             </p>
           </CollapsibleContent>
         </Collapsible>
@@ -430,10 +430,10 @@ export function Ritual({ ds }: RitualProps) {
             {BATCH_SIZE - batch.length > 0 ? (
               <>
                 Commit to {BATCH_SIZE - batch.length} more statement{BATCH_SIZE - batch.length === 1 ? "" : "s"} to unlock the
-                AI comparison — your judgment comes first.
+                AI comparison. Your judgment comes first.
               </>
             ) : (
-              <>Your judgment comes first — AI answers stay locked until your round is complete.</>
+              <>Your judgment comes first. AI answers stay locked until your round is complete.</>
             )}
           </p>
         </div>
