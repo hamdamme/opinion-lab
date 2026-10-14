@@ -135,7 +135,21 @@ export function Ritual({ ds }: RitualProps) {
   const next = () => {
     if (!current) return;
     const i = pool.findIndex((s) => s.id === current.id);
-    setCurrentId(pool[(i + 1) % pool.length]?.id ?? null);
+    const n = pool.length;
+    // Prefer a fresh unrated statement not in this round; fall back to any
+    // statement outside this round. Never land on a just-recorded one, or the
+    // Recorded screen would replay and feel like a freeze.
+    const walk = (pred: (s: Statement) => boolean) => {
+      for (let k = 1; k <= n; k++) {
+        const s = pool[(i + k) % n];
+        if (pred(s)) return s;
+      }
+      return null;
+    };
+    const target =
+      walk((s) => answers[s.id] == null && !batch.includes(s.id)) ??
+      walk((s) => !batch.includes(s.id));
+    if (target) setCurrentId(target.id);
     setEvidenceOpen(false);
     setDetailOpen(false);
   };
