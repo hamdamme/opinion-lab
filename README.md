@@ -2,6 +2,8 @@
 
 **Explore evidence. Form your opinion. Compare AI perspectives.**
 
+**Live app: https://opinionlab.hamdam.me**
+
 A living evaluation platform built on a master's research project (*Evaluation of Large
 Language Model Tendencies in the Context of Dietary Supplements*, Northeastern
 Illinois University, 2025). Read evidence-grounded statements about dietary supplements,
