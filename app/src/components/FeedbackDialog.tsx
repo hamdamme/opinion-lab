@@ -12,7 +12,7 @@ import { Loader2, Send } from "lucide-react";
  * Replace with your own form ID from formspree.io (free tier).
  * Until then the dialog explains that feedback is not wired up yet.
  */
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnpjopno";
 
 const TRUST_OPTIONS = [
   { value: 1, label: "Not at all" },
@@ -41,17 +41,26 @@ export function FeedbackDialog({ open, onClose }: FeedbackDialogProps) {
     setState("sending");
     setError(null);
     try {
+      const payload: Record<string, string> = {
+        feedback,
+        trustworthiness: trust != null ? `${trust} (${TRUST_OPTIONS[trust - 1].label})` : "not answered",
+        _subject: "Opinion Lab feedback",
+      };
+      // Formspree rejects a missing or invalid email, so only include it when provided.
+      if (email.trim()) payload.email = email.trim();
       const resp = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          feedback,
-          trustworthiness: trust != null ? `${trust} (${TRUST_OPTIONS[trust - 1].label})` : "not answered",
-          email: email.trim() || "not provided",
-          _subject: "Opinion Lab feedback",
-        }),
+        body: JSON.stringify(payload),
       });
-      if (!resp.ok) throw new Error(`Request failed (${resp.status})`);
+      if (!resp.ok) {
+        if (resp.status === 422) {
+          throw new Error(
+            "The form asks for a valid email. Add one above, or ask the site owner to make email optional in Formspree."
+          );
+        }
+        throw new Error(`Request failed (${resp.status})`);
+      }
       setState("sent");
     } catch (e) {
       setError(String(e instanceof Error ? e.message : e));
