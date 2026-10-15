@@ -12,11 +12,11 @@ the same statements, tracked over time as new models and new statements are adde
 
 ## Repository structure
 
-- `data/` — the dataset (statements, reference ratings, evaluation runs)
-- `collection/` — the original collection code that produced the dataset
-- `analysis/` — scripts that recompute every published metric
-- `app/` — the interactive web app
-- `docs/` — methodology, verification report, publishing checklist
+- `data/`: the dataset (statements, reference ratings, evaluation runs)
+- `collection/`: the original collection code that produced the dataset
+- `analysis/`: scripts that recompute every published metric
+- `app/`: the interactive web app
+- `docs/`: methodology, verification report, publishing checklist
 
 ```
 ├── app/                  React web application (deployed as a static site)

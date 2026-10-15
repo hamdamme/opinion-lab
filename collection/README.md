@@ -6,9 +6,9 @@ never appear in these files.
 
 ## Files
 
-- `JSON_Maker.ipynb` — built `statements.json` from the raw statement-collection
+- `JSON_Maker.ipynb`: built `statements.json` from the raw statement-collection
   spreadsheet (statement text, ODS/NCCIH/PMC source URL, reference rater answer).
-- `Evaluation_of_LLMs.ipynb` — the evaluation framework: the shared prompt template
+- `Evaluation_of_LLMs.ipynb`: the evaluation framework: the shared prompt template
   (section 3.2.0), one query function per model (OpenAI, Anthropic, Gemini, Mistral,
   DeepSeek, Llama, Falcon, EXAONE), the `ask_llm` runner that collected all 4,000
   ratings, and the original analysis and chart code behind the paper's figures.
