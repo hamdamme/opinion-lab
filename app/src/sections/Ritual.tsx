@@ -157,7 +157,7 @@ export function Ritual({ ds }: RitualProps) {
   const commit = (v: number) => {
     if (!current) return;
     rate(current.id, v);
-    setCurrentId(current.id); // anchor to this statement so the "recorded" card shows
+    setCurrentId(current.id); // anchor to this statement so the "Got it." card shows
     const b = [...batch.filter((x) => x !== current.id), current.id];
     updateBatch(b);
     setDetailOpen(false);
@@ -258,7 +258,7 @@ export function Ritual({ ds }: RitualProps) {
       <div className="mx-auto max-w-2xl">
         <div className="rounded-2xl border bg-card p-8 text-center shadow-sm sm:p-10">
           <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" />
-          <h2 className="mt-4 text-xl font-semibold">Recorded.</h2>
+          <h2 className="mt-4 text-xl font-semibold">Got it.</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             That&apos;s {batch.length} of {BATCH_SIZE} this round. Nice pace, the comparison is getting
             closer.
@@ -462,8 +462,8 @@ export function Ritual({ ds }: RitualProps) {
             <Lock className="h-3 w-3" />
             {BATCH_SIZE - batch.length > 0 ? (
               <>
-                Commit to {BATCH_SIZE - batch.length} more statement{BATCH_SIZE - batch.length === 1 ? "" : "s"} to unlock the
-                AI comparison. Your judgment comes first.
+                {BATCH_SIZE - batch.length} more statement{BATCH_SIZE - batch.length === 1 ? "" : "s"}, then your AI
+                comparison unlocks. Your judgment comes first.
               </>
             ) : (
               <>Your judgment comes first. AI answers stay locked until your round is complete.</>

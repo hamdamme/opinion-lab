@@ -3,6 +3,7 @@ import { useDataset } from "@/hooks/useDataset";
 import { Ritual } from "@/sections/Ritual";
 import { Insights } from "@/sections/Insights";
 import { About } from "@/sections/About";
+import { FeedbackDialog } from "@/components/FeedbackDialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Pill, Compass, BarChart3, BookOpen } from "lucide-react";
 
@@ -11,6 +12,7 @@ type Tab = "explore" | "insights" | "about";
 export default function Home() {
   const ds = useDataset();
   const [tab, setTab] = useState<Tab>("explore");
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
 
   if (ds.error) {
     return (
@@ -82,7 +84,18 @@ export default function Home() {
       <footer className="border-t py-5 text-center text-xs text-muted-foreground">
         {rated > 0 && <span className="mr-2">You have rated {rated} statement{rated === 1 ? "" : "s"}.</span>}
         Research and education only, not medical or nutritional advice.
+        <span className="mx-2">·</span>
+        Your ratings stay in this browser. Nothing is collected or sent anywhere.
+        <button
+          type="button"
+          onClick={() => setFeedbackOpen(true)}
+          className="ml-2 underline-offset-2 hover:underline"
+        >
+          Leave feedback
+        </button>
       </footer>
+
+      <FeedbackDialog open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
     </div>
   );
 }
