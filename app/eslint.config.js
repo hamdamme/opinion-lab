@@ -20,4 +20,17 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    files: ['src/components/ui/**/*.tsx'],
+    rules: {
+      // Shared primitives expose variant helpers and hooks as part of their API.
+      // Keep the export boundary rule active for application components.
+      'react-refresh/only-export-components': ['error', {
+        allowConstantExport: true,
+        allowExportNames: ['badgeVariants', 'buttonVariants', 'buttonGroupVariants',
+          'toggleVariants', 'navigationMenuTriggerStyle', 'useFormField', 'useSidebar'],
+      }],
+    },
+  },
 ])
+

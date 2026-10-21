@@ -6,7 +6,7 @@
 
 A living evaluation platform built on a master's research project (*Evaluation of Large
 Language Model Tendencies in the Context of Dietary Supplements*, Northeastern
-Illinois University, 2025). Read evidence-grounded statements about dietary supplements,
+Illinois University, 2025). Read evidence based statements about dietary supplements,
 check their scientific sources, rate your own agreement, and see how frontier LLMs rated
 the same statements, tracked over time as new models and new statements are added.
 
@@ -46,11 +46,27 @@ npm run dev
 ## Reproduce the numbers
 
 ```bash
-python3 analysis/compute_metrics.py   # requires pandas, numpy
+python3 -m pip install -r requirements.txt
+python3 analysis/validate_data.py
+python3 -m unittest discover -s tests -v
+python3 analysis/compute_metrics.py
 ```
 
-Recomputes overall and per-category MAD and Pearson correlation per model from the
-canonical data and checks them against the values reported in the paper.
+Recomputes overall and category MAD and Pearson correlation per model from the
+canonical data. Dataset validation rejects duplicate IDs, incomplete groups,
+missing model ratings, invalid rating values, and changes to archived overall MAD.
+The metric baseline preserves the April 2025 study; it does not establish medical correctness.
+
+The paper comparison exits with status 1 when a checked claim differs from the data.
+The current archive reports a Gemini rounding discrepancy and a sample text
+mismatch for statement 2.2.5. These remain visible until the paper comparison is
+reconciled. Use `python3 analysis/compute_metrics.py --report-only` to inspect the
+report without treating paper discrepancies as a failed command. Dataset errors
+still fail in this mode. CI validates the dataset and runs the paper comparison
+in report mode; a passing workflow does not certify the manuscript.
+
+GitHub Actions also runs the application lint and production build. Install the
+application dependencies with `npm ci` inside `app/` to use its committed lockfile.
 
 ## Data and citation
 
@@ -71,3 +87,4 @@ showcase app. See ROADMAP.md for what comes next.
 This project is for research and education. It does not provide medical or nutritional
 advice. Metrics describe agreement patterns between models and reference raters; they are
 not measures of factual or medical correctness.
+

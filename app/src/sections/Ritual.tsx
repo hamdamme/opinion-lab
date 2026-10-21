@@ -95,7 +95,7 @@ export function Ritual({ ds }: RitualProps) {
 
   const current: Statement | null = pool.find((s) => s.id === currentId) ?? pool[0] ?? null;
   const myAnswer = current ? (answers[current.id] ?? null) : null;
-  const llmNames = dataset?.llms.map((l) => l.name) ?? [];
+  const llmNames = useMemo(() => dataset?.llms.map((l) => l.name) ?? [], [dataset]);
   /** Statements rated this round — committed, but not yet compared. */
   const pending = current != null && batch.includes(current.id);
 
@@ -478,3 +478,4 @@ export function Ritual({ ds }: RitualProps) {
     </div>
   );
 }
+

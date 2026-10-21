@@ -20,15 +20,9 @@ export function Insights({ ds }: { ds: DatasetState }) {
     return { study, mine, n };
   }, [dataset, answers]);
 
-  if (!dataset) return null;
-  const n = Object.keys(answers).length;
-
-  const closest = stats.mine.length
-    ? [...stats.mine].sort((a, b) => a.mae - b.mae)[0]
-    : null;
-
-  const myRated = dataset.statements.filter((s) => answers[s.id] != null);
   const persona = useMemo(() => {
+    if (!dataset) return null;
+    const myRated = dataset.statements.filter((s) => answers[s.id] != null);
     if (!myRated.length) return null;
     const names = dataset.llms.map((l) => l.name);
     const myMean = myRated.reduce((a, s) => a + answers[s.id], 0) / myRated.length;
@@ -39,7 +33,14 @@ export function Insights({ ds }: { ds: DatasetState }) {
       return m > myMean;
     }).length;
     return { bias, cautiousVs, nModels: names.length };
-  }, [dataset, myRated, answers]);
+  }, [dataset, answers]);
+
+  if (!dataset) return null;
+  const n = Object.keys(answers).length;
+
+  const closest = stats.mine.length
+    ? [...stats.mine].sort((a, b) => a.mae - b.mae)[0]
+    : null;
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -132,3 +133,4 @@ export function Insights({ ds }: { ds: DatasetState }) {
     </div>
   );
 }
+
