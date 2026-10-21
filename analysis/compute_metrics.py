@@ -10,7 +10,9 @@ The canonical inputs are versioned in this repository:
 An optional cross-check against data/../app-data/final_full_results.csv runs
 only if that file is present.
 """
+import argparse
 import json
+from validate_data import load_and_validate
 import re
 from pathlib import Path
 
@@ -20,6 +22,12 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 RUN = DATA / "runs" / "run-2025-04"
+
+parser = argparse.ArgumentParser(description="Recompute study metrics and report paper discrepancies.")
+parser.add_argument("--report-only", action="store_true", help="Report known paper discrepancies without failing; dataset validation still fails on errors.")
+args = parser.parse_args()
+load_and_validate()
+failures = []
 
 # ---------- load ----------
 stmts = {s["id"]: s for s in json.load(open(DATA / "statements.json"))}
@@ -72,7 +80,7 @@ for m in models:
 # ---------- buggy notebook selection (audit finding C) ----------
 def buggy_select(ids, prefix):
     # unanchored regex str.contains("1.2.") style on the ID string
-    return [i for i in ids if re.search(re.escape(prefix), i)]
+    return [i for i in ids if re.search(prefix, i)]
 
 print("\n=== BUGGY-group metrics (unanchored 'x.y.' regex, as in notebook cell 48) ===")
 for m in models:
@@ -90,6 +98,8 @@ print("\n=== PAPER overall-MAD claim vs correct-group recompute ===")
 for m, v in paper["overall MAD"].items():
     got = rows[m]["mad_all"]
     flag = "OK " if abs(round(got, 2) - v) <= 0.005 else "DIFF"
+    if flag == "DIFF":
+        failures.append(f"Paper MAD mismatch: {m}")
     print(f"[{flag}] {m:28s} paper={v:.2f} recomputed={got:.4f}")
 
 # ---------- bias-type splits (Figure 4): LLaMA consumer 1.32 vs 1.02 ----------
@@ -109,10 +119,14 @@ if final is not None:
         for i, cid in enumerate(final["ID"].astype(str)):
             if int(col[i]) != ratings[m][cid]:
                 mismatch += 1
+    if mismatch:
+        failures.append(f"CSV rating mismatches: {mismatch}")
     print("rating mismatches:", mismatch)
 
     print("\n=== reference answers: statements.json vs final CSV ===")
     mm = sum(1 for i, cid in enumerate(final["ID"].astype(str)) if int(final["User Answer"][i]) != ref[cid])
+    if mm:
+        failures.append(f"CSV reference mismatches: {mm}")
     print("reference mismatches:", mm)
 
 # ---------- Table 1 sample rows from the paper ----------
@@ -134,12 +148,23 @@ samples = [
 for sid, frag, ans in samples:
     s = stmts.get(sid)
     if not s:
+        failures.append(f"Missing sample ID: {sid}")
         print(f"[MISSING ID] {sid}")
         continue
     ok_text = frag.lower() in s["statement"].lower()
     ok_ans = int(s["user_answer"]) == ans
+    if not (ok_text and ok_ans):
+        failures.append(f"Paper sample mismatch: {sid}")
     print(f"[{'OK ' if ok_text and ok_ans else 'DIFF'}] {sid} text={'y' if ok_text else 'N'} ans paper={ans} data={s['user_answer']}")
 
 # non-ODS sources count (paper claims all ODS)
 nonods = [i for i in all_ids if "ods.od.nih.gov" not in stmts[i]["reference_url"]]
 print(f"\nnon-ODS source URLs: {len(nonods)} -> domains:", sorted({re.sub(r'^https?://(www\.)?', '', stmts[i]['reference_url']).split('/')[0] for i in nonods}))
+
+
+if failures:
+    print("\nPaper comparison findings:")
+    for finding in failures:
+        print(f"  {finding}")
+    if not args.report_only:
+        raise SystemExit(1)
