@@ -78,6 +78,14 @@ The statement bank and evaluation runs are released under **CC BY 4.0**. Cite as
 
 Code is released under the MIT License (see LICENSE).
 
+## Acknowledgments
+
+Dietary Supplement Opinion Lab builds upon my 2025 master's research project, *Evaluation of Large Language Model Tendencies in the Context of Dietary Supplements*, completed at Northeastern Illinois University under the academic supervision of Dr. Manar Mohaisen.
+
+I sincerely thank Dr. Mohaisen for his academic guidance, mentorship, and support throughout the original research.
+
+The current Opinion Lab platform represents my subsequent independent continuation of that research, extending the original study into a publicly accessible, reproducible research resource.
+
 ## Status
 
 v1.0: statement bank of 400 statements, each paired with an evidence source; run 1 (ten LLMs); static
