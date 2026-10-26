@@ -1,16 +1,24 @@
 # Paper Verification Report
 ## MASTER_PAPER.docx, *Evaluation of Large Language Model Tendencies in the context of Dietary Supplements*
 
-**Date:** 2026-10-12
-**Method:** Every quantitative claim in the manuscript was recomputed independently from the raw collection (`Project_Results_LLM/statements.json` + `results.json`) and cross-checked against `final_full_results.csv` and `all_featured_results.csv`. The analysis notebook (`Evaluation_of_LLMs.ipynb`) was reviewed cell by cell.
+**Original audit date:** 2026-10-12; **repository recheck:** 2026-10-26
+**Method:** The original audit recomputed manuscript claims from the raw collection and reviewed the analysis notebook. The repository recheck uses the versioned canonical files in `data/`, the comparison script in `analysis/compute_metrics.py`, and the generated app bundle.
+
+## Repository recheck (2026-10-26)
+
+- The canonical data contains 400 statements and 4,000 model ratings; the generated app bundle now takes statement wording, source URLs, reference ratings, and model ratings directly from those canonical files.
+- App display topics and model descriptions are versioned separately in `data/app_metadata.json`.
+- Sample text checks normalize curly quotes and whitespace, so typographic apostrophes do not create false mismatches. Statement wording remains case-folded and checked as a substring.
+- Overall MAD values are unchanged. The manuscript's Gemini value of 0.69 remains inconsistent with the canonical value 0.695, which rounds to 0.70 under the script's explicit decimal round-half-up rule.
+- The repository validation workflow checks that the generated app bundle is current. A passing workflow verifies repository consistency, not the manuscript as a whole.
 
 ---
 
 ## Executive summary
 
-**The paper's core numbers are sound.** All overall MAD values, all category MAD values, all Pearson correlations, the correlation-ranking claims, and every sample row in Table 1 match the raw data when computed with correct statement groups. The dataset itself is complete and consistent: 400 statements, four groups of exactly 100, 10 models × 400 ratings, no missing values, and `final_full_results.csv` is byte-for-byte equivalent in content to the raw JSON collection.
+**The stored ratings and raw metrics are reproducible.** The original audit found the overall and category MAD values, Pearson correlations, correlation rankings, and sample rows consistent when computed with correct statement groups. Gemini's published overall rounding remains a discrepancy: 0.695 is reported as 0.69 in the manuscript, while this repository uses decimal round-half-up and reports 0.70.
 
-**Five issues need attention before the document is used in a NIW petition**: none overturns the findings, but each is the kind of thing a reviewer could catch.
+**Seven issues were identified in the original manuscript audit.** The repository records them here so they can be resolved against the source document before the manuscript is reused.
 
 ---
 
@@ -19,7 +27,7 @@
 | Claim in paper | Recomputed result | Status |
 |---|---|---|
 | Overall MAD: Mistral Large 0.68, Deepseek 0.69, Falcon3 0.72, Claude 0.73, ExaOne 0.91, GPT-3.5 0.82, o1 Mini 0.82, LLaMA 1.08 | 0.6775 / 0.6900 / 0.7200 / 0.7300 / 0.9125 / 0.8200 / 0.8225 / 1.0800 | ✅ |
-| Gemini overall MAD "0.69" | 0.6950 | ✅ (rounding, see note 3) |
+| Gemini overall MAD "0.69" | 0.6950 | ⚠️ Reports 0.69; decimal round-half-up gives 0.70 |
 | Consumer MAD: Mistral 0.68, Falcon 0.69, Gemini 0.70, Saba 0.70, R1 0.75, Claude 0.81, GPT-3.5 0.85, LLaMA 1.20, ExaOne 1.03 | 0.675 / 0.685 / 0.705 / 0.700 / 0.750 / 0.810 / 0.855 / 1.195 / 1.030 | ✅ |
 | Professional MAD: R1 0.63, Claude 0.65, Mistral 0.68, Gemini 0.69, Saba 0.72, o1 0.74, Falcon 0.76, GPT-3.5 0.79, ExaOne 0.80, LLaMA 0.96 | 0.630 / 0.650 / 0.680 / 0.685 / 0.720 / 0.740 / 0.755 / 0.785 / 0.795 / 0.965 | ✅ |
 | Overall correlation range 0.28–0.48; R1 highest (0.48); GPT-3.5 lowest (0.28) | 0.2755 to 0.4790 | ✅ |
@@ -76,10 +84,10 @@ The claim *"negatively biased statements yielded higher mean absolute difference
 
 ### Issue 6, Reference list needs cleanup (important for a petition document)
 
-- **Duplicates:** the Azimi et al. dietitian-exam paper appears twice (lines 387, 393); Cheng Peng et al. appears twice (389, 394); Roberts et al. appears twice (390, 395).
-- **Malformed URL:** line 395 has `informatics.omj.com`, a typo of `informatics.bmj.com`.
-- **Raw BibTeX pasted as text:** line 383 (Barocas, Hardt & Narayanan) is an unformatted `@book{...}` entry.
-- **Unverifiable generic entry:** line 388, "Smith, J., Johnson, L. and Lee, K. (2022) A Comprehensive Review of Cross-Validation Techniques…" looks like a placeholder citation; verify it exists or replace it.
+- **Duplicates:** the Azimi et al. dietitian-exam paper appears twice; Cheng Peng et al. appears twice; Roberts et al. appears twice.
+- **Malformed URL:** one reference has `informatics.omj.com`, a typo of `informatics.bmj.com`.
+- **Raw BibTeX pasted as text:** the Barocas, Hardt & Narayanan entry is not formatted as a reference.
+- **Unverifiable generic entry:** "Smith, J., Johnson, L. and Lee, K. (2022) A Comprehensive Review of Cross-Validation Techniques…" looks like a placeholder citation; verify it exists or replace it.
 - Minor: reference 1 has "(Al)" with a lowercase L instead of "AI".
 
 ### Issue 7, Table 2 parameter accuracy
@@ -93,7 +101,7 @@ DeepSeek R1 is listed as "37B parameters"; the model is a 671B-total / 37B-activ
 | File | Verdict |
 |---|---|
 | `Project_Results_LLM/statements.json` + `results.json` | ✅ Canonical raw collection, what was sent to models and what came back |
-| `final_full_results.csv` | ✅ Identical in content to the raw collection (ratings and references match 100%); safe canonical export. Two statement texts differ cosmetically from the JSON (2.1.17 em dash; 2.1.53 "sexual maturation", the **JSON wording is what the models saw**, keep it as the citable wording) |
+| `final_full_results.csv` | ✅ Ratings and reference answers match the raw collection; two statement texts differ (2.1.17 punctuation and 2.1.53 adds "sexual"). The **JSON wording is what the models saw**; keep it as the citable wording. |
 | `all_featured_results.csv` | ⚠️ Different dataset version, 42 reference answers and 368 model ratings differ from the canonical set. Do not cite or merge; archive separately until its provenance is explained |
 | `draft200 Statements.xlsx` | ⚠️ Contains credential-shaped strings (per audit), **rotate those API keys**, never distribute |
 | `Evaluation_of_LLMs.ipynb` | ⚠️ Cell 48 subgroup bug (Issue 1); do not re-run for publication figures without fixing the regexes (`str.startswith("1.2.")` / anchor the patterns) |
@@ -102,4 +110,4 @@ DeepSeek R1 is listed as "37B parameters"; the model is a 671B-total / 37B-activ
 
 ## Reproduction notes
 
-All recomputed values derive from ID-keyed joins between `statements.json` (400 statements, reference answers, source URLs) and `results.json` (10 models × 400 integer ratings). Verification script: `review/verify_paper.py`. Groups were defined by ID prefix (`1.1.x` = consumer-positive, `1.2.x` = consumer-negative, `2.1.x` = professional-positive, `2.2.x` = professional-negative), each exactly 100 statements. Pearson used numpy `corrcoef`; MAD used mean absolute difference against the single stored reference answer per statement.
+All recomputed values derive from ID-keyed joins between `data/statements.json` (400 statements, reference answers, source URLs) and `data/runs/run-2025-04/results.json` (10 models × 400 integer ratings). The reproducible comparison is `analysis/compute_metrics.py`. Groups are defined by ID prefix (`1.1.x` = consumer-positive, `1.2.x` = consumer-negative, `2.1.x` = professional-positive, `2.2.x` = professional-negative), each exactly 100 statements. Pearson uses NumPy `corrcoef`; MAD is mean absolute difference against the single stored reference answer per statement.

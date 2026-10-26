@@ -12,9 +12,12 @@ only if that file is present.
 """
 import argparse
 import json
-from validate_data import load_and_validate
 import re
+import unicodedata
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
+
+from validate_data import load_and_validate
 
 import numpy as np
 import pandas as pd
@@ -58,6 +61,17 @@ def pearson(model, ids):
         return float("nan")
     return float(np.corrcoef(x, y)[0, 1])
 
+def rounded_decimal(value, places=2):
+    quantum = Decimal("1").scaleb(-places)
+    return Decimal(str(value)).quantize(quantum, rounding=ROUND_HALF_UP)
+
+
+def normalize_sample_text(value):
+    value = unicodedata.normalize("NFKC", value)
+    value = value.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"'}))
+    return " ".join(value.split()).casefold()
+
+
 all_ids = sorted(stmts.keys())
 cons_ids = [i for i in all_ids if group(i)[0] == "Consumer"]
 prof_ids = [i for i in all_ids if group(i)[0] == "Professional"]
@@ -97,7 +111,7 @@ paper = {
 print("\n=== PAPER overall-MAD claim vs correct-group recompute ===")
 for m, v in paper["overall MAD"].items():
     got = rows[m]["mad_all"]
-    flag = "OK " if abs(round(got, 2) - v) <= 0.005 else "DIFF"
+    flag = "OK " if rounded_decimal(got) == Decimal(str(v)) else "DIFF"
     if flag == "DIFF":
         failures.append(f"Paper MAD mismatch: {m}")
     print(f"[{flag}] {m:28s} paper={v:.2f} recomputed={got:.4f}")
@@ -151,7 +165,7 @@ for sid, frag, ans in samples:
         failures.append(f"Missing sample ID: {sid}")
         print(f"[MISSING ID] {sid}")
         continue
-    ok_text = frag.lower() in s["statement"].lower()
+    ok_text = normalize_sample_text(frag) in normalize_sample_text(s["statement"])
     ok_ans = int(s["user_answer"]) == ans
     if not (ok_text and ok_ans):
         failures.append(f"Paper sample mismatch: {sid}")

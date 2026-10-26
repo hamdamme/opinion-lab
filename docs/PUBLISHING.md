@@ -1,61 +1,47 @@
-# Publishing checklist (owner actions)
+# Release and publication guide
 
-These steps require your GitHub and Zenodo accounts. Nothing here publishes anything by
-itself, each step is explicit and reversible before release.
+## Current publication
 
-## 1. Create the private GitHub repository
+- GitHub repository: [hamdamme/opinion-lab](https://github.com/hamdamme/opinion-lab)
+- Dataset archive: [Zenodo DOI 10.5281/zenodo.23357963](https://doi.org/10.5281/zenodo.23357963)
+- Live application: [opinionlab.hamdam.me](https://opinionlab.hamdam.me)
 
-From `~/Developer/Projects/opinion-lab`:
+These links describe the v1.0 publication. Recheck the release, DOI record, and live app
+before citing them as the latest versions.
 
-```bash
-gh repo create opinion-lab --private --source=. --remote=origin
-git push -u origin main
-```
+## Prepare a release
 
-Verify: `gh repo view --json nameWithOwner,isPrivate,url` shows your account and
-`isPrivate: true`.
+1. Confirm the release scope, dataset version, and manuscript changes with the owner.
+2. Update the canonical data and documentation. Regenerate the static app dataset with
+   `python3 analysis/build_app_dataset.py`.
+3. Run the repository checks from the root:
 
-**Before making it public**, review the tree once (`git ls-files`): it should contain
-only this repository's product files. The original research materials (drafts with
-credentials, conflicting exports) must stay out, they are not in this repo.
+   The strict paper comparison is expected to report a mismatch until the manuscript's
+   Gemini overall MAD is corrected from 0.69 to 0.70. `--report-only` is useful for
+   reviewing all findings, but it does not turn that discrepancy into a pass.
 
-## 2. Make the repository public
+   ```bash
+   python3 analysis/validate_data.py
+   python3 analysis/build_app_dataset.py --check
+   python3 -m unittest discover -s tests -v
+   python3 analysis/compute_metrics.py
+   cd app && npm ci && npm run lint && npm run build
+   ```
 
-Only after the review in step 1:
+4. Review the full diff, especially changes to canonical data, citations, and generated
+   files. Preserve previously released run data; publish a new immutable run directory
+   for new model evaluations.
+5. After owner approval, tag and publish the release. Verify the GitHub release and the
+   corresponding Zenodo archive and DOI.
+6. Verify the production deployment and smoke-test the public routes before describing
+   the release as live.
 
-- On the GitHub repo page: Settings → General → Danger Zone → Change repository
-  visibility → Public.
-- Or: `gh repo edit --visibility public --accept-visibility-change-consequences`
+## Publication requirements
 
-## 3. Mint a DOI via Zenodo (gives the dataset a citable DOI)
-
-1. Log in at https://zenodo.org with your GitHub account (authorize Zenodo).
-2. Zenodo → GitHub → flip the switch on the `opinion-lab` repository.
-3. Create a **git tag and GitHub release** for v1.0:
-
-```bash
-git tag -a v1.0 -m "v1.0: statement bank (400 statements) + run 1 (10 LLMs)"
-git push origin v1.0
-```
-
-Then on GitHub: Releases → Draft a new release → choose tag v1.0 → publish.
-Zenodo automatically archives the release and assigns a DOI (takes a few minutes).
-
-4. Copy the DOI badge/link into README.md (replace the placeholder) and
-   `data/` citation note; commit and push.
-
-## 4. Deploy the app (static hosting)
-
-Recommended: Vercel or Cloudflare Pages, both free for this use.
-
-- Vercel: vercel.com → New Project → import `opinion-lab` → set root directory to `app`
-  → deploy. Every push to `main` redeploys automatically.
-- Cloudflare Pages: similar; build command `npm run build`, output dir `app/dist`.
-
-The app fetches its dataset from `app/public/data/dataset.json`, which is regenerated
-from `data/` when statements or runs change (see app/public/data/README note).
-
-## 5. Optional: ORCID
-
-If you don't have one, register at https://orcid.org, it links your name to the DOI
-record permanently and strengthens the public record of the work.
+- Keep code under the MIT license and the statement bank and evaluation runs under CC BY
+  4.0, with attribution in the release and archive metadata.
+- Cite the exact dataset version used for any reported metric.
+- Describe MAD and correlation as agreement measures, not measures of factual or medical
+  correctness.
+- Distinguish local checks, GitHub Actions, GitHub releases, Zenodo archives, and deployed
+  production state when reporting completion.

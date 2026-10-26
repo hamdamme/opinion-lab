@@ -58,15 +58,16 @@ missing model ratings, invalid rating values, and changes to archived overall MA
 The metric baseline preserves the April 2025 study; it does not establish medical correctness.
 
 The paper comparison exits with status 1 when a checked claim differs from the data.
-The current archive reports a Gemini rounding discrepancy and a sample text
-mismatch for statement 2.2.5. These remain visible until the paper comparison is
-reconciled. Use `python3 analysis/compute_metrics.py --report-only` to inspect the
-report without treating paper discrepancies as a failed command. Dataset errors
-still fail in this mode. CI validates the dataset and runs the paper comparison
-in report mode; a passing workflow does not certify the manuscript.
+It applies decimal round-half-up to two places and normalizes curly quotes and
+whitespace when checking sample text. The archived manuscript still reports
+Gemini's overall MAD as 0.69, while the canonical value 0.695 rounds to 0.70 under
+that rule. Use `python3 analysis/compute_metrics.py --report-only` to inspect the
+comparison without treating paper discrepancies as a failed command. Dataset errors
+still fail in this mode. A passing workflow does not certify the manuscript.
 
-GitHub Actions also runs the application lint and production build. Install the
-application dependencies with `npm ci` inside `app/` to use its committed lockfile.
+GitHub Actions checks that the app dataset is current, validates the research data,
+and runs the application lint and production build. Install the application dependencies
+with `npm ci` inside `app/` to use its committed lockfile.
 
 ## Data and citation
 
