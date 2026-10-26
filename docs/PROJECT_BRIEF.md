@@ -39,7 +39,8 @@ citable dataset.
   methodology page.
 - Canonical data package: 400-statement bank (v1.0) + run 1 (10 models × 400 ratings),
   versioned under `data/`.
-- Reproducible analysis scripts (`analysis/`) that regenerate every published metric.
+- Reproducible study MAD/Pearson analysis (`analysis/`) and browser agreement calculations
+  (`app/src/lib/stats.ts`), with regression checks.
 - Versioned git releases: v1.0 = thesis dataset and study.
 
 ## Out of scope (v1.0)
@@ -60,7 +61,8 @@ citable dataset.
 ## Success criteria
 
 - `npm run build` passes; deployed site loads with all 400 statements and run-1 ratings.
-- Every number shown in the app is reproducible by running `analysis/compute_metrics.py`.
+- Study MAD/Pearson metrics are reproducible with `analysis/compute_metrics.py`; app
+  agreement statistics are calculated by `app/src/lib/stats.ts` and checked with `npm test`.
 - Repository has a tagged v1.0 release; dataset archived on Zenodo with a DOI.
 - A first-time visitor can complete the full ritual (statement → source → rating → reveal)
   in under two minutes without instructions.

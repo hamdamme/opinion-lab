@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Cite the v1.0 archive for the dataset and record the Git commit used for current analysis."
+title: "Dietary Supplement Opinion Lab"
+type: software
+authors:
+  - family-names: Aynazarov
+    given-names: Hamdam
+repository-code: "https://github.com/hamdamme/opinion-lab"
+url: "https://opinionlab.hamdam.me"
+license: MIT
+preferred-citation:
+  type: software
+  title: "hamdamme/opinion-lab: v1.0 — Thesis dataset"
+  authors:
+    - family-names: Aynazarov
+      given-names: Hamdam
+  year: 2026
+  version: "v1.0"
+  doi: "10.5281/zenodo.23357963"
+  url: "https://zenodo.org/records/23357963"

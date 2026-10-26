@@ -1,47 +1,61 @@
 # Release and publication guide
 
-## Current publication
+## Current repository and archived release
 
-- GitHub repository: [hamdamme/opinion-lab](https://github.com/hamdamme/opinion-lab)
-- Dataset archive: [Zenodo DOI 10.5281/zenodo.23357963](https://doi.org/10.5281/zenodo.23357963)
-- Live application: [opinionlab.hamdam.me](https://opinionlab.hamdam.me)
+- [GitHub repository](https://github.com/hamdamme/opinion-lab): current code and documentation.
+- [Zenodo v1.0 archive](https://doi.org/10.5281/zenodo.23357963): frozen original release,
+  published 2026-10-14, containing the canonical statements and April 2025 ratings.
+- [Live application](https://opinionlab.hamdam.me): deployed separately from the frozen archive.
 
-These links describe the v1.0 publication. Recheck the release, DOI record, and live app
-before citing them as the latest versions.
+The v1.0 ZIP predates the collection notebooks and repaired analysis pipeline. Its historical
+analysis script depends on CSV files not included in that archive. The canonical statement
+bank and ratings match the current repository, but reproducible current analysis requires
+current repository code. Updating Zenodo metadata does not update the ZIP.
+
+Preserve v1.0 and its DOI. A self-contained archive of later corrections requires a new
+approved software release and Zenodo version, not replacement of existing files.
+The original data DOI remains usable for the unchanged dataset; record the code commit
+used for any reanalysis as well.
 
 ## Prepare a release
 
-1. Confirm the release scope, dataset version, and manuscript changes with the owner.
-2. Update the canonical data and documentation. Regenerate the static app dataset with
-   `python3 analysis/build_app_dataset.py`.
-3. Run the repository checks from the root:
-
-   The strict paper comparison is expected to report a mismatch until the manuscript's
-   Gemini overall MAD is corrected from 0.69 to 0.70. `--report-only` is useful for
-   reviewing all findings, but it does not turn that discrepancy into a pass.
+1. Agree the release scope and version with the owner. Preserve archived statements and
+   ratings; new experimental inputs or runs require separate versioning and fresh ratings.
+2. Generate the app bundle with `python3 analysis/build_app_dataset.py`.
+3. Run the checks from the repository root:
 
    ```bash
+   python3 -m pip install -r requirements.txt
    python3 analysis/validate_data.py
    python3 analysis/build_app_dataset.py --check
    python3 -m unittest discover -s tests -v
-   python3 analysis/compute_metrics.py
-   cd app && npm ci && npm run lint && npm run build
+   python3 analysis/compute_metrics.py --report-only
+   cd app
+   npm ci
+   npm test
+   npm run lint
+   npm run build
    ```
 
-4. Review the full diff, especially changes to canonical data, citations, and generated
-   files. Preserve previously released run data; publish a new immutable run directory
-   for new model evaluations.
-5. After owner approval, tag and publish the release. Verify the GitHub release and the
-   corresponding Zenodo archive and DOI.
-6. Verify the production deployment and smoke-test the public routes before describing
-   the release as live.
+   `--report-only` displays selected historical manuscript discrepancies while still failing
+   on invalid canonical data. Without it, the script intentionally fails on four historical
+   rounding claims: Gemini overall and consumer MAD, GPT-3.5 consumer MAD, and Llama
+   professional MAD. These comparison values are recorded in the script; editing a DOCX
+   cannot change its result. Do not replace historical claims merely to make the audit pass.
+4. Review the diff, references, licensing, and app behavior. Test the release archive from
+   an extracted copy so no untracked local file is required for the documented analysis.
+5. After owner approval, tag and publish the new release. Verify the Zenodo archive contents,
+   metadata, version-specific DOI, and links. Do not move the historical v1.0 tag.
+6. Verify production separately after deployment. Local tests, hosted checks, previews,
+   production, and immutable archives represent different states.
 
 ## Publication requirements
 
-- Keep code under the MIT license and the statement bank and evaluation runs under CC BY
-  4.0, with attribution in the release and archive metadata.
-- Cite the exact dataset version used for any reported metric.
-- Describe MAD and correlation as agreement measures, not measures of factual or medical
-  correctness.
-- Distinguish local checks, GitHub Actions, GitHub releases, Zenodo archives, and deployed
-  production state when reporting completion.
+Code remains MIT-licensed; the statement bank and evaluation runs are CC BY 4.0.
+State that distinction in a mixed software/data archive's description. Preserve creator
+identity and acknowledge supervision of the original research without implying supervision
+or endorsement of subsequent independent software releases.
+
+Report agreement metrics as descriptive comparisons, not proof of medical correctness,
+clinical safety, or causal framing effects. Cite the data version and analysis-code revision.
+See [Zenodo metadata guidance](ZENODO_ACKNOWLEDGMENT_GUIDE.md) for the existing record.
