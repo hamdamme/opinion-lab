@@ -1,4 +1,4 @@
-"""Recompute every numeric claim in MASTER_PAPER.docx from the raw collection
+"""Recompute archived study metrics and selected historical manuscript claims from the collection
 (statements.json + results.json) and, when available, from the CSV export.
 
 Usage (from the repository root):
@@ -116,13 +116,35 @@ for m, v in paper["overall MAD"].items():
         failures.append(f"Paper MAD mismatch: {m}")
     print(f"[{flag}] {m:28s} paper={v:.2f} recomputed={got:.4f}")
 
+# Additional known historical rounding claims; do not overwrite them with revised values.
+print("\n=== Historical subgroup MAD rounding checks ===")
+for model, metric, claimed in [
+    ("Google Gemini 2.0 Flash", "mad_cons", "0.70"),
+    ("OpenAI 3.5 Turbo", "mad_cons", "0.85"),
+    ("Meta Llama 3.3 70B", "mad_prof", "0.96"),
+]:
+    got = rows[model][metric]
+    flag = "OK " if rounded_decimal(got) == Decimal(claimed) else "DIFF"
+    if flag == "DIFF":
+        failures.append(f"Paper MAD mismatch: {model} ({metric})")
+    print(f"[{flag}] {model} {metric}: historical={claimed} recomputed={got:.4f} rounded={rounded_decimal(got)}")
+
 # ---------- bias-type splits (Figure 4): LLaMA consumer 1.32 vs 1.02 ----------
 print("\n=== Bias-type MAD splits ===")
-for m in ["Meta Llama 3.3 70B", "Mistral Large", "Mistral Saba", "Deepseek R1"]:
+for m in models:
     for aud, ids in [("Consumer", cons_ids), ("Professional", prof_ids)]:
         pos = [i for i in ids if group(i)[1] == "Positive"]
         neg = [i for i in ids if group(i)[1] == "Negative"]
         print(f"{m:28s} {aud:12s} pos(n={len(pos)})={mad(m,pos):.4f} neg(n={len(neg)})={mad(m,neg):.4f}")
+
+print("\n=== Descriptive subgroup comparisons ===")
+for audience, ids in [("Consumer", cons_ids), ("Professional", prof_ids)]:
+    pos = [i for i in ids if group(i)[1] == "Positive"]
+    neg = [i for i in ids if group(i)[1] == "Negative"]
+    higher = [m for m in models if mad(m, neg) > mad(m, pos)]
+    print(f"{audience} negative MAD > positive MAD: {len(higher)}/{len(models)}")
+print("Professional MAD < consumer MAD:", sum(r["mad_prof"] < r["mad_cons"] for r in rows.values()), "/10")
+print("Consumer correlation > professional correlation:", sum(r["r_cons"] > r["r_prof"] for r in rows.values()), "/10")
 
 # ---------- which file matches results.json? ----------
 if final is not None:

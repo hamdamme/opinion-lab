@@ -9,9 +9,8 @@ Study conducted February to April 2025; this brief covers the platform continuat
 ## Problem
 
 Large language models are increasingly used as informal sources of nutrition and health
-information, yet their systematic tendencies (over-agreement, framing sensitivity,
-audience-dependent bias) are invisible to end users. A 2025 master's study measured these
-tendencies across ten frontier LLMs and 400 source-grounded statements, but the findings sit
+information, and their ratings may differ across claims and audiences. A 2025 master's study described
+agreement patterns across ten language models and 400 source-grounded statements, but the findings sit
 in a static document that few will ever read, and the measurements were frozen the day they
 were taken.
 
@@ -21,7 +20,7 @@ Turn the completed study into a living, citable public instrument: anyone can re
 evidence-grounded statement, check its scientific source, form their own judgment, and
 compare it against AI positions. Each new evaluation run extends a public record of how
 model behavior shifts over time. For the owner, this is an academic-grade showcase of
-original, continuing research work (NIW portfolio), with a reproducible repository and a
+original, continuing research work, with a reproducible repository and a
 citable dataset.
 
 ## Target users and use cases
@@ -30,8 +29,8 @@ citable dataset.
   statement bank; reuse the dataset with attribution (CC BY 4.0).
 - **Curious consumers**: read supplement statements next to their NIH/peer-reviewed sources,
   rate their own agreement, discover where AI stands.
-- **Thesis committee and letter writers**: a public, reproducible artifact (repo + DOI) that
-  advisor letters can cite concretely.
+- **Academic reviewers**: a public, reproducible artifact (repo + DOI) that
+  reviewers can inspect and reproduce.
 
 ## Initial scope (v1.0)
 
@@ -68,6 +67,6 @@ citable dataset.
 
 ## Open questions and risks
 
-- Zenodo DOI minting requires linking the owner's GitHub account to Zenodo (owner action).
+- The existing dataset DOI is 10.5281/zenodo.23357963; later releases require explicit versioning.
 - Future runs need consistent prompting; a prompt version file must be kept per run.
 - Statement wording is immutable once rated; corrections create new statement IDs.

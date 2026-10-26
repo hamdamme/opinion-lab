@@ -1,8 +1,9 @@
 # Collection
 
-The code that produced the dataset, exactly as it was run for the study (Google Colab,
-February to April 2025). API keys were kept in Colab Secrets (`userdata.get(...)`) and
-never appear in these files.
+Preserved collection and analysis notebooks from the 2025 study (Google Colab). These
+files document the available historical code; incomplete settings and execution metadata
+mean they are not a guarantee of an exactly reproducible model collection. Credential
+lookups use Colab Secrets (`userdata.get(...)`); do not add credentials to the repository.
 
 ## Files
 
@@ -17,7 +18,8 @@ never appear in these files.
 
 The bias-type split in section 6.1.3 used an unanchored `x.y.` regex on statement IDs,
 which silently mixed statement groups in one chart. This was caught during independent
-verification, and all published subgroup values were corrected. See
+verification. Use the canonical prefix-based analysis for subgroup values; the preserved
+notebook retains the historical defect and should not be used unchanged to regenerate figures. See
 `docs/VERIFICATION_REPORT.md` and the corrected values in `analysis/compute_metrics.py`.
 
 The raw statement-collection spreadsheet is not published; the cleaned, verified output
