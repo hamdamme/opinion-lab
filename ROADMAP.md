@@ -1,6 +1,6 @@
 # Project Roadmap
 
-Last updated: 2026-10-14
+Last updated: 2026-10-26
 
 Sources of truth:
 - [Project Brief](docs/PROJECT_BRIEF.md)
@@ -23,10 +23,12 @@ is ready.
 
 ## Blockers
 
-- GitHub repository creation and Zenodo linking require the owner's accounts (checklist in
-  docs/PUBLISHING.md).
+There are no active repository or publication setup blockers. New evaluation runs require
+an owner-approved model list, prompt version, and budget before collection begins.
 
 ## Release status
 
-Released. v1.0 (2026-10-14): public repo (hamdamme/opinion-lab), dataset archived on
-Zenodo (https://doi.org/10.5281/zenodo.23357963), app live at https://opinionlab.hamdam.me.
+v1.0 was released on 2026-10-14. The repository is public, the dataset has a Zenodo DOI
+([10.5281/zenodo.23357963](https://doi.org/10.5281/zenodo.23357963)), and the app is live
+at [opinionlab.hamdam.me](https://opinionlab.hamdam.me). Verify the release, archive, and
+deployment state again before claiming any later release is current.

@@ -4,17 +4,22 @@
 
 **Live app: https://opinionlab.hamdam.me**
 
-A living evaluation platform built on a master's research project (*Evaluation of Large
+A research exploration platform built on a master's research project (*Evaluation of Large
 Language Model Tendencies in the Context of Dietary Supplements*, Northeastern
-Illinois University, 2025). Read evidence based statements about dietary supplements,
-check their scientific sources, rate your own agreement, and see how frontier LLMs rated
-the same statements, tracked over time as new models and new statements are added.
+Illinois University, 2025). Explore source-linked statements about dietary supplements,
+check their evidence sources,
+rate your own agreement, and compare it with archived ratings from ten language models.
+The current public dataset contains one evaluation run from April 2025; additional runs
+and statement versions are planned. A source link does not imply that a statement is true.
+
+For a concise study summary, see the [academic research overview](docs/ACADEMIC_RESEARCH_OVERVIEW.md).
+The [methodology](docs/METHODOLOGY.md) explains the design and its limitations.
 
 ## Repository structure
 
 - `data/`: the dataset (statements, reference ratings, evaluation runs)
 - `collection/`: the original collection code that produced the dataset
-- `analysis/`: scripts that recompute every published metric
+- `analysis/`: data validation, study metrics, and app dataset generation
 - `app/`: the interactive web app
 - `docs/`: methodology, verification report, publishing checklist
 
@@ -24,7 +29,7 @@ the same statements, tracked over time as new models and new statements are adde
 │   ├── statements.json   Canonical statement bank (v1.0: 400 statements, immutable IDs)
 │   └── runs/             Evaluation runs (immutable; one folder per run)
 │       └── run-2025-04/  Run 1: ten LLMs × 400 ratings (the study dataset)
-├── analysis/             Scripts that recompute every metric shown in the app or paper
+├── analysis/             Scripts for validation and archived study metrics
 ├── docs/
 │   ├── PROJECT_BRIEF.md  Approved scope and decisions
 │   ├── METHODOLOGY.md    Study design, prompts, metrics, limitations
@@ -37,7 +42,7 @@ the same statements, tracked over time as new models and new statements are adde
 
 ```bash
 cd app
-npm install
+npm ci
 npm run dev
 ```
 
@@ -49,7 +54,7 @@ npm run dev
 python3 -m pip install -r requirements.txt
 python3 analysis/validate_data.py
 python3 -m unittest discover -s tests -v
-python3 analysis/compute_metrics.py
+python3 analysis/compute_metrics.py --report-only
 ```
 
 Recomputes overall and category MAD and Pearson correlation per model from the
@@ -58,15 +63,19 @@ missing model ratings, invalid rating values, and changes to archived overall MA
 The metric baseline preserves the April 2025 study; it does not establish medical correctness.
 
 The paper comparison exits with status 1 when a checked claim differs from the data.
-The current archive reports a Gemini rounding discrepancy and a sample text
-mismatch for statement 2.2.5. These remain visible until the paper comparison is
-reconciled. Use `python3 analysis/compute_metrics.py --report-only` to inspect the
-report without treating paper discrepancies as a failed command. Dataset errors
-still fail in this mode. CI validates the dataset and runs the paper comparison
-in report mode; a passing workflow does not certify the manuscript.
+It applies decimal round-half-up to two places and normalizes curly quotes and
+whitespace when checking sample text. The historical manuscript comparison includes known
+rounding discrepancies, including
+Gemini overall MAD (0.6950 → 0.70) and consumer MAD (0.7050 → 0.71),
+GPT-3.5 consumer MAD (0.8550 → 0.86), and Llama professional MAD (0.9650 → 0.97).
+The script checks selected historical claims, not the entire manuscript or a later revision.
+Use `python3 analysis/compute_metrics.py --report-only` to inspect the
+comparison without treating paper discrepancies as a failed command. Dataset errors
+still fail in this mode. A passing workflow does not certify the manuscript.
 
-GitHub Actions also runs the application lint and production build. Install the
-application dependencies with `npm ci` inside `app/` to use its committed lockfile.
+GitHub Actions checks that the app dataset is current, validates the research data,
+and runs the application lint and production build. Install the application dependencies
+with `npm ci` inside `app/` to use its committed lockfile.
 
 ## Data and citation
 

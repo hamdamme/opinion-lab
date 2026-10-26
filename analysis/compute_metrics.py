@@ -1,4 +1,4 @@
-"""Recompute every numeric claim in MASTER_PAPER.docx from the raw collection
+"""Recompute archived study metrics and selected historical manuscript claims from the collection
 (statements.json + results.json) and, when available, from the CSV export.
 
 Usage (from the repository root):
@@ -12,9 +12,12 @@ only if that file is present.
 """
 import argparse
 import json
-from validate_data import load_and_validate
 import re
+import unicodedata
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
+
+from validate_data import load_and_validate
 
 import numpy as np
 import pandas as pd
@@ -58,6 +61,17 @@ def pearson(model, ids):
         return float("nan")
     return float(np.corrcoef(x, y)[0, 1])
 
+def rounded_decimal(value, places=2):
+    quantum = Decimal("1").scaleb(-places)
+    return Decimal(str(value)).quantize(quantum, rounding=ROUND_HALF_UP)
+
+
+def normalize_sample_text(value):
+    value = unicodedata.normalize("NFKC", value)
+    value = value.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"'}))
+    return " ".join(value.split()).casefold()
+
+
 all_ids = sorted(stmts.keys())
 cons_ids = [i for i in all_ids if group(i)[0] == "Consumer"]
 prof_ids = [i for i in all_ids if group(i)[0] == "Professional"]
@@ -97,18 +111,40 @@ paper = {
 print("\n=== PAPER overall-MAD claim vs correct-group recompute ===")
 for m, v in paper["overall MAD"].items():
     got = rows[m]["mad_all"]
-    flag = "OK " if abs(round(got, 2) - v) <= 0.005 else "DIFF"
+    flag = "OK " if rounded_decimal(got) == Decimal(str(v)) else "DIFF"
     if flag == "DIFF":
         failures.append(f"Paper MAD mismatch: {m}")
     print(f"[{flag}] {m:28s} paper={v:.2f} recomputed={got:.4f}")
 
+# Additional known historical rounding claims; do not overwrite them with revised values.
+print("\n=== Historical subgroup MAD rounding checks ===")
+for model, metric, claimed in [
+    ("Google Gemini 2.0 Flash", "mad_cons", "0.70"),
+    ("OpenAI 3.5 Turbo", "mad_cons", "0.85"),
+    ("Meta Llama 3.3 70B", "mad_prof", "0.96"),
+]:
+    got = rows[model][metric]
+    flag = "OK " if rounded_decimal(got) == Decimal(claimed) else "DIFF"
+    if flag == "DIFF":
+        failures.append(f"Paper MAD mismatch: {model} ({metric})")
+    print(f"[{flag}] {model} {metric}: historical={claimed} recomputed={got:.4f} rounded={rounded_decimal(got)}")
+
 # ---------- bias-type splits (Figure 4): LLaMA consumer 1.32 vs 1.02 ----------
 print("\n=== Bias-type MAD splits ===")
-for m in ["Meta Llama 3.3 70B", "Mistral Large", "Mistral Saba", "Deepseek R1"]:
+for m in models:
     for aud, ids in [("Consumer", cons_ids), ("Professional", prof_ids)]:
         pos = [i for i in ids if group(i)[1] == "Positive"]
         neg = [i for i in ids if group(i)[1] == "Negative"]
         print(f"{m:28s} {aud:12s} pos(n={len(pos)})={mad(m,pos):.4f} neg(n={len(neg)})={mad(m,neg):.4f}")
+
+print("\n=== Descriptive subgroup comparisons ===")
+for audience, ids in [("Consumer", cons_ids), ("Professional", prof_ids)]:
+    pos = [i for i in ids if group(i)[1] == "Positive"]
+    neg = [i for i in ids if group(i)[1] == "Negative"]
+    higher = [m for m in models if mad(m, neg) > mad(m, pos)]
+    print(f"{audience} negative MAD > positive MAD: {len(higher)}/{len(models)}")
+print("Professional MAD < consumer MAD:", sum(r["mad_prof"] < r["mad_cons"] for r in rows.values()), "/10")
+print("Consumer correlation > professional correlation:", sum(r["r_cons"] > r["r_prof"] for r in rows.values()), "/10")
 
 # ---------- which file matches results.json? ----------
 if final is not None:
@@ -151,7 +187,7 @@ for sid, frag, ans in samples:
         failures.append(f"Missing sample ID: {sid}")
         print(f"[MISSING ID] {sid}")
         continue
-    ok_text = frag.lower() in s["statement"].lower()
+    ok_text = normalize_sample_text(frag) in normalize_sample_text(s["statement"])
     ok_ans = int(s["user_answer"]) == ans
     if not (ok_text and ok_ans):
         failures.append(f"Paper sample mismatch: {sid}")

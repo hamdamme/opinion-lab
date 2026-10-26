@@ -13,7 +13,7 @@ The original study examined how large language models respond to evidence-ground
 
 ## Dataset and evaluation
 
-The study used 400 statements organized across two dimensions: audience (consumer or health professional) and framing (positive or negative). Each of the four groups contained 100 statements. Ten large language models rated all 400 statements, producing 4,000 model ratings. Each statement has one stored reference rating; consumer statements were rated by a knowledgeable consumer, and health-professional statements by a registered dietitian.
+The study used 400 statements organized across two dimensions: audience (consumer or health professional) and framing (positive or negative). Each of the four groups contained 100 statements. Ten large language models rated all 400 statements, producing 4,000 model ratings. Each statement has one stored reference rating; the knowledgeable consumer rated only the 200 consumer statements, and the registered dietitian rated only the 200 health-professional statements. Because their statement sets do not overlap, audience and rater effects cannot be separated and inter-rater reliability cannot be estimated.
 
 The analysis reports mean absolute difference (MAD), which measures the average numerical distance between model and reference ratings, and Pearson correlation, which measures the linear association between their rating patterns. These are agreement measures. They do not independently establish whether a statement, model response, or reference rating is medically correct.
 

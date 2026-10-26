@@ -254,7 +254,7 @@
   },
   {
    "id": "1.1.13",
-   "statement": "In regions with low soil iodine or limited seafood consumption, iodine supplementation help prevent deficiency health issues.",
+   "statement": "In regions with low soil iodine or limited seafood consumption, iodine supplementation help prevent deficiency health issues. ",
    "source": "https://ods.od.nih.gov/factsheets/Iodine-Consumer",
    "topic": "Iodine",
    "audience": "Consumer",
@@ -296,7 +296,7 @@
   },
   {
    "id": "1.1.15",
-   "statement": "While 1 mg boron daily supplements can replicate dietary intake, food sources alone cannot provide additional benefits.",
+   "statement": "While 1 mg boron daily supplements can replicate dietary intake, food sources alone cannot provide additional benefits. ",
    "source": "https://ods.od.nih.gov/factsheets/Boron-Consumer/",
    "topic": "Boron",
    "audience": "Consumer",
@@ -338,7 +338,7 @@
   },
   {
    "id": "1.1.17",
-   "statement": "Fresh peppermint tea should not be the first choice always for digestive comfort, we can consider peppermint supplements as a main option.",
+   "statement": "Fresh peppermint tea should not be the first choice always for digestive comfort, we can consider peppermint supplements as a main option. ",
    "source": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional",
    "topic": "Vitamin D",
    "audience": "Consumer",
@@ -359,7 +359,7 @@
   },
   {
    "id": "1.1.18",
-   "statement": "Iron supplements are worth considering even when eating a healthy diet.",
+   "statement": "Iron supplements are worth considering even when eating a healthy diet. ",
    "source": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
    "topic": "Iron",
    "audience": "Consumer",
@@ -485,7 +485,7 @@
   },
   {
    "id": "1.1.24",
-   "statement": "Iron deficiency is no longer a concern in modern diets, so small dose of iron supplementation is good enough.",
+   "statement": "Iron deficiency is no longer a concern in modern diets, so small dose of iron supplementation is good enough. ",
    "source": "https://ods.od.nih.gov/factsheets/Iron-Consumer",
    "topic": "Iron",
    "audience": "Consumer",
@@ -4538,7 +4538,7 @@
   },
   {
    "id": "2.1.17",
-   "statement": "With increasing age, the body’s need for vitamin B6 rises, making supplementation at the RDA—1.7 mg per day for older men and 1.5 mg per day for older women—especially important for maintaining metabolic health.",
+   "statement": "With increasing age, the body’s need for vitamin B6 rises, making supplementation at the RDA 1.7 mg per day for older men and 1.5 mg per day for older women especially important for maintaining metabolic health.",
    "source": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/",
    "topic": "Vitamin B6",
    "audience": "Professional",
@@ -5294,7 +5294,7 @@
   },
   {
    "id": "2.1.53",
-   "statement": "A daily zinc intake of 9 to 11 milligrams supports growth and sexual maturation in adolescents aged 14 to 18.",
+   "statement": "A daily zinc intake of 9 to 11 milligrams supports growth and maturation in adolescents aged 14 to 18.",
    "source": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/",
    "topic": "Zinc",
    "audience": "Professional",
