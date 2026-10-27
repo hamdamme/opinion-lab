@@ -28,11 +28,11 @@ export function Insights({ ds }: { ds: DatasetState }) {
     const myMean = myRated.reduce((a, s) => a + answers[s.id], 0) / myRated.length;
     const refMean = myRated.reduce((a, s) => a + s.reference, 0) / myRated.length;
     const bias = myMean - refMean;
-    const cautiousVs = names.filter((n) => {
+    const lowerThanModels = names.filter((n) => {
       const m = myRated.reduce((a, s) => a + s.ratings[n], 0) / myRated.length;
       return m > myMean;
     }).length;
-    return { bias, cautiousVs, nModels: names.length };
+    return { bias, lowerThanModels, nModels: names.length };
   }, [dataset, answers]);
 
   if (!dataset) return null;
@@ -63,19 +63,19 @@ export function Insights({ ds }: { ds: DatasetState }) {
               <p className="mt-3">
                 Your personal read: on average you rate{" "}
                 {Math.abs(persona.bias) < 0.15 ? (
-                  <>almost exactly in step with the human reference rater</>
+                  <>close to the mean reference rating; individual ratings may differ</>
                 ) : (
                   <>
                     <span className="font-semibold">
                       {Math.abs(persona.bias).toFixed(2)} points{" "}
-                      {persona.bias > 0 ? "more agreeable" : "more skeptical"}
+                      {persona.bias > 0 ? "higher" : "lower"}
                     </span>{" "}
-                    than the reference rater
+                    than the reference ratings
                   </>
                 )}
-                , and you are more cautious than{" "}
+                , and your mean agreement rating is lower than{" "}
                 <span className="font-semibold">
-                  {persona.cautiousVs} of {persona.nModels}
+                  {persona.lowerThanModels} of {persona.nModels}
                 </span>{" "}
                 models.
               </p>
@@ -112,7 +112,7 @@ export function Insights({ ds }: { ds: DatasetState }) {
                   <TableCell className="font-medium">{s.name}</TableCell>
                   <TableCell className="text-right">{pct(s.exact)}</TableCell>
                   <TableCell className="text-right">{pct(s.within1)}</TableCell>
-                  <TableCell className="text-right">{s.mae.toFixed(3)}</TableCell>
+                  <TableCell className="text-right">{s.mae.toFixed(4)}</TableCell>
                   <TableCell className="text-right">
                     <span className={s.bias > 0.05 ? "text-emerald-600" : s.bias < -0.05 ? "text-red-500" : "text-muted-foreground"}>
                       {s.bias > 0.05 ? "agrees more" : s.bias < -0.05 ? "agrees less" : "balanced"}
@@ -125,8 +125,9 @@ export function Insights({ ds }: { ds: DatasetState }) {
           <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
             Reference ratings come from a knowledgeable consumer (consumer statements) and a registered
             dietitian (professional statements). Metrics measure agreement patterns, not factual or
-            medical correctness. Recomputed from the published dataset by{" "}
-            <code className="text-[11px]">analysis/compute_metrics.py</code>.
+            medical correctness. Calculated from the archived ratings in your browser. Rows are ranked
+            by exact agreement, with MAD used to break ties. “Tendency” describes whether the
+            mean rating is higher or lower than the reference mean.
           </p>
         </CardContent>
       </Card>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { liveEndpoint, parseLiveRating } from "@/lib/liveRating";
 import type { DatasetState } from "@/hooks/useDataset";
 import { LIKERT_LABELS, type Statement } from "@/types";
 import { RatingCompare } from "@/components/RatingCompare";
@@ -16,36 +17,33 @@ interface LiveProps {
   onClose: () => void;
 }
 
-const KEY_KEY = "opinionlab.livecfg";
-
-function loadCfg() {
-  try {
-    return JSON.parse(localStorage.getItem(KEY_KEY) ?? "{}");
-  } catch {
-    return {};
-  }
+export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
+  return statement ? <LiveSession key={statement.id} ds={ds} statement={statement} onClose={onClose} /> : null;
 }
 
-export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
-  const [cfg, setCfg] = useState<{ baseUrl?: string; apiKey?: string; model?: string }>(loadCfg);
-  const [result, setResult] = useState<{ rating: number; raw: string } | null>(null);
+function LiveSession({ ds, statement, onClose }: LiveProps & { statement: Statement }) {
+  const [cfg, setCfg] = useState<{ baseUrl?: string; apiKey?: string; model?: string }>({});
+  const request = useRef<AbortController | null>(null);
+  useEffect(() => () => request.current?.abort(), []);
+  const [result, setResult] = useState<{ rating: number; model: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const llmNames = ds.dataset?.llms.map((l) => l.name) ?? [];
 
   const run = async () => {
-    if (!statement) return;
+    if (request.current) return;
+    const controller = new AbortController();
+    request.current = controller;
     setLoading(true);
     setError(null);
     setResult(null);
-    localStorage.setItem(KEY_KEY, JSON.stringify(cfg));
-    const base = (cfg.baseUrl || "https://api.openai.com/v1").replace(/\/$/, "");
     const system =
       "You are evaluating a dietary-supplement-related statement. Rate how much you agree with the statement on a 1-5 Likert scale, where 1 = Strongly Disagree, 2 = Disagree, 3 = Neutral, 4 = Agree, 5 = Strongly Agree. Base your judgment on established scientific evidence about dietary supplements. Reply with ONLY a single integer from 1 to 5.";
     const user = `Statement: "${statement.statement}"\n\nReference source: ${statement.source}\n\nYour rating (1-5):`;
     try {
-      const resp = await fetch(`${base}/chat/completions`, {
+      const resp = await fetch(liveEndpoint(cfg.baseUrl ?? ""), {
+        signal: controller.signal,
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${cfg.apiKey}` },
         body: JSON.stringify({
@@ -58,16 +56,15 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
           max_tokens: 8,
         }),
       });
-      if (!resp.ok) throw new Error(`API error ${resp.status}: ${(await resp.text()).slice(0, 200)}`);
+      if (!resp.ok) throw new Error(`The endpoint returned HTTP ${resp.status}. Check the endpoint, model, and credentials.`);
       const data = await resp.json();
-      const text: string = data.choices?.[0]?.message?.content ?? "";
-      const m = text.match(/[1-5]/);
-      if (!m) throw new Error(`Could not parse a 1-5 rating from the model reply: "${text.slice(0, 120)}"`);
-      setResult({ rating: Number(m[0]), raw: text.trim() });
+      const rating = parseLiveRating(data.choices?.[0]?.message?.content);
+      if (!controller.signal.aborted) setResult({ rating, model: cfg.model ?? "live" });
     } catch (e) {
-      setError(String(e instanceof Error ? e.message : e));
+      if (!controller.signal.aborted) setError(String(e instanceof Error ? e.message : e));
     } finally {
-      setLoading(false);
+      request.current = null;
+      if (!controller.signal.aborted) setLoading(false);
     }
   };
 
@@ -77,8 +74,10 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
         <DialogHeader>
           <DialogTitle>Live model comparison</DialogTitle>
           <DialogDescription>
-            Send this statement to any OpenAI-compatible endpoint and compare its live rating with the
-            ten models from the study. Your key is stored only in this browser.
+            This sends the displayed statement, source URL, and API key directly to the HTTPS endpoint
+            you choose. The key stays in memory while this dialog is open and is not saved.
+            Provider charges may apply. This exploratory prompt differs from the archived study
+            prompt, so the results do not represent identical evaluation conditions.
           </DialogDescription>
         </DialogHeader>
 
@@ -125,7 +124,7 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
             {result && (
               <div className="space-y-3">
                 <div className="rounded-md border p-3 text-sm">
-                  <span className="font-semibold">{cfg.model}</span> rated{" "}
+                  <span className="font-semibold">{result.model}</span> rated{" "}
                   <Badge className="mx-1">{result.rating} · {LIKERT_LABELS[result.rating]}</Badge>
                   vs study reference {statement.reference} (
                   {result.rating - statement.reference === 0
@@ -136,7 +135,7 @@ export function LiveCompareDialog({ ds, statement, onClose }: LiveProps) {
                   statement={statement}
                   llmNames={llmNames}
                   reference={statement.reference}
-                  live={{ name: cfg.model ?? "live", rating: result.rating }}
+                  live={{ name: result.model, rating: result.rating }}
                 />
               </div>
             )}

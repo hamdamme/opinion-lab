@@ -85,7 +85,8 @@ export default function Home() {
         {rated > 0 && <span className="mr-2">You have rated {rated} statement{rated === 1 ? "" : "s"}.</span>}
         Research and education only, not medical or nutritional advice.
         <span className="mx-2">·</span>
-        Your ratings stay in this browser. Nothing is collected or sent anywhere.
+        Your statement ratings stay in this browser. Optional feedback and live model requests
+        are sent only when you submit them.
         <button
           type="button"
           onClick={() => setFeedbackOpen(true)}

@@ -86,8 +86,8 @@ export function FeedbackDialog({ open, onClose }: FeedbackDialogProps) {
         <DialogHeader>
           <DialogTitle>Leave feedback</DialogTitle>
           <DialogDescription>
-            Your ratings never leave your browser. This form is the only thing that
-            sends anything, and only if you submit it.
+            Submitting this form sends your feedback, optional source-trust response, and optional
+            email to the site owner through Formspree. Your saved statement ratings are not included.
           </DialogDescription>
         </DialogHeader>
 

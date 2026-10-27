@@ -6,6 +6,7 @@ import { LikertPicker } from "@/components/LikertPicker";
 import { RatingCompare } from "@/components/RatingCompare";
 import { LiveCompareDialog } from "@/components/LiveCompareDialog";
 import { computeStats } from "@/lib/stats";
+import { cleanAnswers, cleanBatch, readStored, writeStored } from "@/lib/browserState";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -36,12 +37,8 @@ function shuffled<T>(arr: T[], seed: number): T[] {
 }
 
 function loadBatch(): string[] {
-  try {
-    const v = JSON.parse(localStorage.getItem(BATCH_KEY) ?? "[]");
-    return Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
-  } catch {
-    return [];
-  }
+  const answers = cleanAnswers(readStored("opinionlab.answers.v1"));
+  return cleanBatch(readStored(BATCH_KEY)).filter(id => answers[id] != null);
 }
 
 /** Popular supplement shortcuts shown as one-tap chips above the topic dropdown. */
@@ -70,12 +67,12 @@ export function Ritual({ ds }: RitualProps) {
   const [liveOpen, setLiveOpen] = useState<Statement | null>(null);
   const [batch, setBatch] = useState<string[]>(loadBatch);
   const [view, setView] = useState<"collect" | "compare">(
-    loadBatch().length >= BATCH_SIZE ? "compare" : "collect"
+    batch.length >= BATCH_SIZE ? "compare" : "collect"
   );
 
   const updateBatch = (b: string[]) => {
     setBatch(b);
-    localStorage.setItem(BATCH_KEY, JSON.stringify(b));
+    writeStored(BATCH_KEY, b);
   };
 
   const topics = useMemo(
@@ -104,8 +101,8 @@ export function Ritual({ ds }: RitualProps) {
     () =>
       batch
         .map((id) => dataset?.statements.find((s) => s.id === id))
-        .filter((s): s is Statement => !!s),
-    [batch, dataset]
+        .filter((s): s is Statement => !!s && answers[s.id] != null),
+    [batch, dataset, answers]
   );
 
   const roundStats = useMemo(() => {
@@ -150,6 +147,7 @@ export function Ritual({ ds }: RitualProps) {
       walk((s) => answers[s.id] == null && !batch.includes(s.id)) ??
       walk((s) => !batch.includes(s.id));
     if (target) setCurrentId(target.id);
+    else if (batch.length > 0) setView("compare");
     setEvidenceOpen(false);
     setDetailOpen(false);
   };
@@ -176,7 +174,7 @@ export function Ritual({ ds }: RitualProps) {
   if (!dataset) return null;
 
   // ---------- Compare screen ----------
-  if (view === "compare") {
+  if (view === "compare" && batchStatements.length > 0) {
     return (
       <div className="mx-auto max-w-2xl space-y-6">
         <div className="rounded-2xl border bg-card p-6 shadow-sm sm:p-8">
@@ -185,19 +183,19 @@ export function Ritual({ ds }: RitualProps) {
           </p>
           {roundStats && (
             <p className="text-sm leading-relaxed">
-              Across these {batchStatements.length} statements, the AI closest to your judgment was{" "}
+              Across {batchStatements.length} rated statement{batchStatements.length === 1 ? "" : "s"}, the AI closest to your judgment was{" "}
               <Badge className="bg-emerald-600">{roundStats.closest.name}</Badge> (average gap{" "}
               {roundStats.closest.mae.toFixed(2)} points).{" "}
               {Math.abs(roundStats.bias) < 0.15 ? (
-                <>Overall you tracked the human reference rater almost exactly.</>
+                <>Your mean rating was close to the mean reference rating; individual ratings may differ.</>
               ) : (
                 <>
                   On average you rated{" "}
                   <span className="font-semibold">
                     {Math.abs(roundStats.bias).toFixed(2)} points{" "}
-                    {roundStats.bias > 0 ? "more agreeable" : "more skeptical"}
+                    {roundStats.bias > 0 ? "higher" : "lower"}
                   </span>{" "}
-                  than the reference rater.
+                  than the reference ratings.
                 </>
               )}
             </p>
@@ -342,7 +340,7 @@ export function Ritual({ ds }: RitualProps) {
               Closest AI to you: <span className="font-medium text-foreground">{reveal.closest.name}</span> (rated {reveal.closest.r}).
               {reveal.refGap === 0
                 ? " You matched the reference rater."
-                : ` You were ${Math.abs(reveal.refGap)} point${Math.abs(reveal.refGap) > 1 ? "s" : ""} ${reveal.refGap > 0 ? "more agreeable" : "more skeptical"} than the reference rater.`}
+                : ` You were ${Math.abs(reveal.refGap)} point${Math.abs(reveal.refGap) > 1 ? "s" : ""} ${reveal.refGap > 0 ? "higher" : "lower"} than the reference ratings.`}
             </p>
 
             <Collapsible open={detailOpen} onOpenChange={setDetailOpen} className="mt-4">

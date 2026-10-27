@@ -33,7 +33,7 @@ The [methodology](docs/METHODOLOGY.md) explains the design and its limitations.
 ├── docs/
 │   ├── PROJECT_BRIEF.md  Approved scope and decisions
 │   ├── METHODOLOGY.md    Study design, prompts, metrics, limitations
-│   └── VERIFICATION_REPORT.md  Independent audit of the thesis numbers (2026-10-12)
+│   └── VERIFICATION_REPORT.md  Research verification and corrections (rechecked 2026-10-26)
 ├── README.md
 └── ROADMAP.md
 ```
@@ -75,7 +75,8 @@ still fail in this mode. A passing workflow does not certify the manuscript.
 
 GitHub Actions checks that the app dataset is current, validates the research data,
 and runs the application lint and production build. Install the application dependencies
-with `npm ci` inside `app/` to use its committed lockfile.
+with `npm ci` inside `app/` to use its committed lockfile. Run `npm test` there for
+application regression checks.
 
 ## Data and citation
 
@@ -83,6 +84,10 @@ The statement bank and evaluation runs are released under **CC BY 4.0**. Cite as
 
 > Aynazarov, H. (2026). Dietary Supplement Opinion Lab Dataset (v1.0). Zenodo.
 > https://doi.org/10.5281/zenodo.23357963
+
+The DOI preserves the original v1.0 repository snapshot, including the dataset. It does
+not contain later collection notebooks or the repaired analysis pipeline. Use the current
+repository for those additions; see [release and archive scope](docs/PUBLISHING.md).
 
 Code is released under the MIT License (see LICENSE).
 
